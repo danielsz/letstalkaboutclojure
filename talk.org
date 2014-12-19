@@ -1,0 +1,12 @@
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/reveal.js/2.6.2/
+#+AUTHOR: Daniel Szmulewicz & Daniel Slutsky
+#+EMAIL: 
+#+REVEAL_THEME: moon
+#+OPTIONS: num:nil
+#+Title: Let's talk about Clojure
+
+* Introduction
+* Part I: Psychology
+* Part II: General Clojure introduction
+* Part III: Clojurescript, core.async and Om
+
