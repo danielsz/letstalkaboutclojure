@@ -2,11 +2,107 @@
 #+AUTHOR: Daniel Szmulewicz & Daniel Slutsky
 #+EMAIL: 
 #+REVEAL_THEME: moon
-#+OPTIONS: num:nil
+#+OPTIONS: num:nil toc:nil
 #+Title: Let's talk about Clojure
 
-* Introduction
-* Part I: Psychology
+* Part I: Introduction
+** A little quiz for starters
+Moshe is looking at Yael, and Yael is looking at Eli. Moshe is married, but Eli is not. Is a married person looking at an unmarried person?
+- A) Yes
+- B) No
+- C) There is not enough information to derive the correct answer.
+** Evolution
+The human brain is wired to accept the first seemingly fit answer that comes to mind when considering a problem.
+It makes sense from an evolutionary point of view: heuristics speed up the process of finding a solution. Speed is important for survival.
+** Reasoning and Logic
+#+BEGIN_QUOTE
+Psychologists concur with philosophers in the irrelevance of logic to everyday reasoning. Decades of work on Wason’s selection task seem to confirm this. — Pascal Engels
+#+END_QUOTE
+** The brain
+We have a terribly poor understanding of what goes on in the brain. We are completely unable to simulate it, and we cannot even recognize what the general form of this computation is, despite decades of experimental data from neurobiologists. 
+** Thinking about thinking
+The fact is that the brain can reason about itself. It is able to make reflective assessments, meta-deductions. It can think in abstractions, recognize patterns and formalize processes. It has notions of inference and validity, and our intuitions are wired to these parts.
+Philoshophy and mathematics have been a human activity for as far back as written records exist.
+** Computation
+Computation is a process following a well-defined model expressed as, for example, an algorithm, or a protocol.
+** Models of computation
+Turing Machines, Cellular Automata, Finite State Machines, Stack Machines, Graph Automata, Lambda Calculus, Fractran, Tiling Systems, Chemical Reaction Systems, Hopfield Networks, Boltzmann Machines, Neural Networks, Circuits, Graphical Models, Boolean Algebra, String Rewriting Systems, Semigroups, Quantum Waves, Diophantine Equations, Tag Systems, The Actor Model, etc.
+** Models of computation
+- Models of computation are extremely useful to inventors/designer of high-level programming languages.
+- Some models of computations are more succesful than others. 
+- Lambda Calculus is at the heart of two of the most highly regarded programming languages: Haskell and Lisp.
+** Lambda Calculus
+Alonzo Church developed a notation for arbitrary functions. His notation is called λ-calculus (“lambda calculus”). Church introduced his formalism to give a functional foundation for Mathematics but in the end mathematicians preferred (axiomatic) set theory. The λ-calculus was re-discovered as a versatile tool in Computer Science by people like McCarthy, Strachey, Landin, and Scott in the 1960s.
+** What did McCarthy discover?
+If you try to answer the question, what is the smallest number of operators you need in order to write an interpreter for a language in itself, Lisp is what you get. In other words, Lisp is not something John McCarthy invented, so much as something he discovered.
+** Seven operators
+If you have seven primitive operators (quote, atom, eq, car, cdr, cons, and cond) then you can define another function, eval, that acts as a Lisp interpreter.
+[[https://leanpub.com/readevalprintlove002][A primordial Lisp described in detail.]]
+** S-expressions
+#+BEGIN_SRC clojure
+(1 2 3)
+#+END_SRC  
+With S-expressions, code and data share the same representation.
+** Lisp takes off
+LISP became a common language for artificial intelligence (AI) programming, partly owing to the confluence of LISP and AI work at MIT and partly because AI programs capable of "learning" could be written in LISP as self-modifying programs. Since then, it has expanded in a family of dialects, regularly reincarnating in new shape and form but always retaining the same core semantics.
+** The importance of Lisp in the industry
+Contributions to programming as we know it today. A long list of ideas that originated with Lispers:
+
+- garbage collection
+- tree data structures
+- if-then-else structure
+- dynamic typing
+- homoiconicity
+- metaprogramming
+- self-hosting compilers
+- interactive environment
+
+** Clojure is a Lisp
+Clojure is pronounced exactly like closure, where the s/j has the zh sound as in azure, pleasure etc. The name was chosen to be unique. I wanted to involve c (c#), l (lisp) and j (java). Once I came up with Clojure, given the pun on closure, the available domains and vast emptiness of the googlespace, it was an easy decision. — Rich Hickey
+** Closure 
+#+BEGIN_SRC javascript
+(function() {
+    var x = 0;
+    return function() {
+        return x;
+    }
+})();
+#+END_SRC
+#+BEGIN_QUOTE
+Sometimes it's called a closure, other times a saved lexical environment. Or, as some of us like to say, let over lambda. — Let Over Lambda, Doug Hoyte
+#+END_QUOTE
+#+BEGIN_SRC lisp
+(let ((x 0))
+    (lambda () x))
+#+END_SRC
+** Closures are fundamental
+Closures are the building blocks of lisp. Closures achieve and provide encapsulation of data and functionality in a single, logical unit.
+#+BEGIN_QUOTE
+Because of this, lisp programmers often don't think in terms of classes and objects. Once assignable value cells and good old lambda expressions are available, object systems are, at best, occasionally useful abstractions and, at worst, special-case and redundant. — Doug Hoyte, Let Over Lambda, Closure Oriented Programming
+#+END_QUOTE
+** Closures and OO
+#+BEGIN_QUOTE
+It's possible, for instance, to implement almost all of the design patterns in the Gang of Four book in terms of Lisp macros. Rather than implementing the pattern each time you use it, you just invoke the correct macro and get it for free. — David Chisnall
+#+END_QUOTE
+** Functional vs OO
+#+BEGIN_QUOTE
+Whereas an object-oriented mindset will foster the approach of defining an application domain as a set of nouns (classes), the functional mind will see the solution as the composition or verbs (functions). Though both programmers may in all likelihood generate equivalent results, the functional solution will be more succinct, understandable, and reusable. — Michael Fogus, The Joy Clojure
+#+END_QUOTE
+** Clojure's motivation
+Clojure was born out of frustration provoked in large part by the complexities of concurrent programming, complicated by the weaknesses of object-oriented programming in facilitating it. 
+** Simple made easy
+[[http://www.infoq.com/presentations/Simple-Made-Easy][Infoq video]]
+** Complexity
+#+BEGIN_QUOTE
+Civilization advances by extending the number of important operations which we can perform without thinking about them" — Alfred North Whitehead
+#+END_QUOTE
+** Learning Curves for different programming languages
+[[https://github.com/Dobiasd/articles/blob/master/programming_language_learning_curves.md][Learning Curves]]
+** Enlightenment
+#+BEGIN_QUOTE
+Lisp is worth learning for the profound enlightenment experience you will have when you finally get it; that experience will make you a better programmer for the rest of your days, even if you never actually use Lisp itself a lot." — Eric Raymond
+#+END_QUOTE
+How then can we write correct programs in our everyday work? 
 * Part II: General Clojure introduction
 * Part III: Clojurescript, core.async and Om
 

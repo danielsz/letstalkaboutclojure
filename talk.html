@@ -28,43 +28,266 @@
 <h2>Daniel Szmulewicz &amp; Daniel Slutsky</h2>
 <h2><a href="mailto:"></a></h2>
 <h2></h2></section>
-<section>
-<h2>Table of Contents</h2><ul>
-<li>
-<a href="#sec-1">Introduction</a>
-</li>
-<li>
-<a href="#sec-2">Part I: Psychology</a>
-</li>
-<li>
-<a href="#sec-3">Part II: General Clojure introduction</a>
-</li>
-<li>
-<a href="#sec-4">Part III: Clojurescript, core.async and Om</a>
-</li>
-</ul>
-</section>
 
 <section>
 <section id="sec-1" >
 
-<h2>Introduction</h2>
+<h2>Part I: Introduction</h2>
+</section>
+<section id="sec-1-1" >
+
+<h3>A little quiz for starters</h3>
+<p>
+Moshe is looking at Yael, and Yael is looking at Eli. Moshe is married, but Eli is not. Is a married person looking at an unmarried person?
+</p>
+<ul class="org-ul">
+<li>A) Yes
+</li>
+<li>B) No
+</li>
+<li>C) There is not enough information to derive the correct answer.
+</li>
+</ul>
+</section>
+<section id="sec-1-2" >
+
+<h3>Evolution</h3>
+<p>
+The human brain is wired to accept the first seemingly fit answer that comes to mind when considering a problem.
+It makes sense from an evolutionary point of view: heuristics speed up the process of finding a solution. Speed is important for survival.
+</p>
+</section>
+<section id="sec-1-3" >
+
+<h3>Reasoning and Logic</h3>
+<blockquote>
+<p>
+Psychologists concur with philosophers in the irrelevance of logic to everyday reasoning. Decades of work on Wason’s selection task seem to confirm this. — Pascal Engels
+</p>
+</blockquote>
+</section>
+<section id="sec-1-4" >
+
+<h3>The brain</h3>
+<p>
+We have a terribly poor understanding of what goes on in the brain. We are completely unable to simulate it, and we cannot even recognize what the general form of this computation is, despite decades of experimental data from neurobiologists. 
+</p>
+</section>
+<section id="sec-1-5" >
+
+<h3>Thinking about thinking</h3>
+<p>
+The fact is that the brain can reason about itself. It is able to make reflective assessments, meta-deductions. It can think in abstractions, recognize patterns and formalize processes. It has notions of inference and validity, and our intuitions are wired to these parts.
+Philoshophy and mathematics have been a human activity for as far back as written records exist.
+</p>
+</section>
+<section id="sec-1-6" >
+
+<h3>Computation</h3>
+<p>
+Computation is a process following a well-defined model expressed as, for example, an algorithm, or a protocol.
+</p>
+</section>
+<section id="sec-1-7" >
+
+<h3>Models of computation</h3>
+<p>
+Turing Machines, Cellular Automata, Finite State Machines, Stack Machines, Graph Automata, Lambda Calculus, Fractran, Tiling Systems, Chemical Reaction Systems, Hopfield Networks, Boltzmann Machines, Neural Networks, Circuits, Graphical Models, Boolean Algebra, String Rewriting Systems, Semigroups, Quantum Waves, Diophantine Equations, Tag Systems, The Actor Model, etc.
+</p>
+</section>
+<section id="sec-1-8" >
+
+<h3>Models of computation</h3>
+<ul class="org-ul">
+<li>Models of computation are extremely useful to inventors/designer of high-level programming languages.
+</li>
+<li>Some models of computations are more succesful than others. 
+</li>
+<li>Lambda Calculus is at the heart of two of the most highly regarded programming languages: Haskell and Lisp.
+</li>
+</ul>
+</section>
+<section id="sec-1-9" >
+
+<h3>Lambda Calculus</h3>
+<p>
+Alonzo Church developed a notation for arbitrary functions. His notation is called λ-calculus (“lambda calculus”). Church introduced his formalism to give a functional foundation for Mathematics but in the end mathematicians preferred (axiomatic) set theory. The λ-calculus was re-discovered as a versatile tool in Computer Science by people like McCarthy, Strachey, Landin, and Scott in the 1960s.
+</p>
+</section>
+<section id="sec-1-10" >
+
+<h3>What did McCarthy discover?</h3>
+<p>
+If you try to answer the question, what is the smallest number of operators you need in order to write an interpreter for a language in itself, Lisp is what you get. In other words, Lisp is not something John McCarthy invented, so much as something he discovered.
+</p>
+</section>
+<section id="sec-1-11" >
+
+<h3>Seven operators</h3>
+<p>
+If you have seven primitive operators (quote, atom, eq, car, cdr, cons, and cond) then you can define another function, eval, that acts as a Lisp interpreter.
+<a href="https://leanpub.com/readevalprintlove002">A primordial Lisp described in detail.</a>
+</p>
+</section>
+<section id="sec-1-12" >
+
+<h3>S-expressions</h3>
+<div class="org-src-container">
+
+<pre  class="src src-clojure"><span style="color: #2aa198;">(</span>1 2 3<span style="color: #2aa198;">)</span>
+</pre>
+</div>
+<p>
+With S-expressions, code and data share the same representation.
+</p>
+</section>
+<section id="sec-1-13" >
+
+<h3>Lisp takes off</h3>
+<p>
+LISP became a common language for artificial intelligence (AI) programming, partly owing to the confluence of LISP and AI work at MIT and partly because AI programs capable of "learning" could be written in LISP as self-modifying programs. Since then, it has expanded in a family of dialects, regularly reincarnating in new shape and form but always retaining the same core semantics.
+</p>
+</section>
+<section id="sec-1-14" >
+
+<h3>The importance of Lisp in the industry</h3>
+<p>
+Contributions to programming as we know it today. A long list of ideas that originated with Lispers:
+</p>
+
+<ul class="org-ul">
+<li>garbage collection
+</li>
+<li>tree data structures
+</li>
+<li>if-then-else structure
+</li>
+<li>dynamic typing
+</li>
+<li>homoiconicity
+</li>
+<li>metaprogramming
+</li>
+<li>self-hosting compilers
+</li>
+<li>interactive environment
+</li>
+</ul>
+
+</section>
+<section id="sec-1-15" >
+
+<h3>Clojure is a Lisp</h3>
+<p>
+Clojure is pronounced exactly like closure, where the s/j has the zh sound as in azure, pleasure etc. The name was chosen to be unique. I wanted to involve c (c#), l (lisp) and j (java). Once I came up with Clojure, given the pun on closure, the available domains and vast emptiness of the googlespace, it was an easy decision. — Rich Hickey
+</p>
+</section>
+<section id="sec-1-16" >
+
+<h3>Closure</h3>
+<div class="org-src-container">
+
+<pre  class="src src-javascript">(<span style="color: #859900; font-weight: bold;">function</span>() {
+    <span style="color: #859900; font-weight: bold;">var</span> <span style="color: #268bd2;">x</span> = 0;
+    <span style="color: #859900; font-weight: bold;">return</span> <span style="color: #859900; font-weight: bold;">function</span>() {
+        <span style="color: #859900; font-weight: bold;">return</span> x;
+    }
+})();
+</pre>
+</div>
+<blockquote>
+<p>
+Sometimes it's called a closure, other times a saved lexical environment. Or, as some of us like to say, let over lambda. — Let Over Lambda, Doug Hoyte
+</p>
+</blockquote>
+<div class="org-src-container">
+
+<pre  class="src src-lisp">(<span style="color: #859900; font-weight: bold;">let</span> ((x 0))
+    (<span style="color: #859900; font-weight: bold;">lambda</span> () x))
+</pre>
+</div>
+</section>
+<section id="sec-1-17" >
+
+<h3>Closures are fundamental</h3>
+<p>
+Closures are the building blocks of lisp. Closures achieve and provide encapsulation of data and functionality in a single, logical unit.
+</p>
+<blockquote>
+<p>
+Because of this, lisp programmers often don't think in terms of classes and objects. Once assignable value cells and good old lambda expressions are available, object systems are, at best, occasionally useful abstractions and, at worst, special-case and redundant. — Doug Hoyte, Let Over Lambda, Closure Oriented Programming
+</p>
+</blockquote>
+</section>
+<section id="sec-1-18" >
+
+<h3>Closures and OO</h3>
+<blockquote>
+<p>
+It's possible, for instance, to implement almost all of the design patterns in the Gang of Four book in terms of Lisp macros. Rather than implementing the pattern each time you use it, you just invoke the correct macro and get it for free. — David Chisnall
+</p>
+</blockquote>
+</section>
+<section id="sec-1-19" >
+
+<h3>Functional vs OO</h3>
+<blockquote>
+<p>
+Whereas an object-oriented mindset will foster the approach of defining an application domain as a set of nouns (classes), the functional mind will see the solution as the composition or verbs (functions). Though both programmers may in all likelihood generate equivalent results, the functional solution will be more succinct, understandable, and reusable. — Michael Fogus, The Joy Clojure
+</p>
+</blockquote>
+</section>
+<section id="sec-1-20" >
+
+<h3>Clojure's motivation</h3>
+<p>
+Clojure was born out of frustration provoked in large part by the complexities of concurrent programming, complicated by the weaknesses of object-oriented programming in facilitating it. 
+</p>
+</section>
+<section id="sec-1-21" >
+
+<h3>Simple made easy</h3>
+<p>
+<a href="http://www.infoq.com/presentations/Simple-Made-Easy">Infoq video</a>
+</p>
+</section>
+<section id="sec-1-22" >
+
+<h3>Complexity</h3>
+<blockquote>
+<p>
+Civilization advances by extending the number of important operations which we can perform without thinking about them" — Alfred North Whitehead
+</p>
+</blockquote>
+</section>
+<section id="sec-1-23" >
+
+<h3>Learning Curves for different programming languages</h3>
+<p>
+<a href="https://github.com/Dobiasd/articles/blob/master/programming_language_learning_curves.md">Learning Curves</a>
+</p>
+</section>
+<section id="sec-1-24" >
+
+<h3>Enlightenment</h3>
+<blockquote>
+<p>
+Lisp is worth learning for the profound enlightenment experience you will have when you finally get it; that experience will make you a better programmer for the rest of your days, even if you never actually use Lisp itself a lot." — Eric Raymond
+</p>
+</blockquote>
+<p>
+How then can we write correct programs in our everyday work? 
+</p>
 </section>
 </section>
 <section>
 <section id="sec-2" >
 
-<h2>Part I: Psychology</h2>
-</section>
-</section>
-<section>
-<section id="sec-3" >
-
 <h2>Part II: General Clojure introduction</h2>
 </section>
 </section>
 <section>
-<section id="sec-4" >
+<section id="sec-3" >
 
 <h2>Part III: Clojurescript, core.async and Om</h2>
 </section>
