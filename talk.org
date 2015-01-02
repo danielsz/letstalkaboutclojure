@@ -102,7 +102,27 @@ Civilization advances by extending the number of important operations which we c
 #+BEGIN_QUOTE
 Lisp is worth learning for the profound enlightenment experience you will have when you finally get it; that experience will make you a better programmer for the rest of your days, even if you never actually use Lisp itself a lot." — Eric Raymond
 #+END_QUOTE
-How then can we write correct programs in our everyday work? 
-* Part II: General Clojure introduction
-* Part III: Clojurescript, core.async and Om
+#+BEGIN_QUOTE
+90% of what you learn while studying your first Lisp will carry over to your next.
+#+END_QUOTE
+* Part II: Data oriented programming
+** Syntactic abstraction
+The argument in the case of Lisps is that of extensibility. No special power to the language designers over its users.
+** Homoiconicity
+Traditionally, the most defining feature of Lisp. This is a property of homoiconic languages. 
+** Clojure’s characteristics
+In Clojure: Data -> Functions -> Macros.
+** Embrace the data
+- Persistent data structure
+- Immutability
+- Reader syntax for maps, vectors, and sets
+- Concurrency primitives to work with data on multiple cores
+** Stories
+With all the potential of a modern Lisp, a perfect storm is brewing for a wave of innovation.
+Rethink browser client development: Clojurescript, core.async and Om.
 
+* Part III: Clojurescript, core.async and Om
+#+BEGIN_QUOTE
+“There is no such thing as philosophy-free science; there is only science whose philosophical baggage is taken on board without examination.
+—Daniel Dennett, Darwin's Dangerous Idea, 1995”
+#+END_QUOTE
