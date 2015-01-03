@@ -1,0 +1,12 @@
+Meeting resistance when trying to rationalize a system. 
+We have a terribly poor understanding of what goes on in the brain. We are completely unable to simulate it, and we cannot even recognize what the general form of this computation is, despite decades of experimental data from neurobiologists.
+** Thinking about thinking
+The brain can reason about itself. It can think in abstractions, recognize patterns and formalize processes. It has notions of inference and validity, and our intuitions are wired to these parts.
+Philoshophy and mathematics have been a human activity for as far back as written records exist.
+** 
+Daniel Kahneman: . Associative memory (it happens without awareness, intuition) vs effortful thinking (deliberate thinking, reflective assessments, meta-deductions, a sense of agency).  are bad at recognizing this. Like chess players that recognize chess situations, we program recognizing problems and solutions with the machinery of intuition (system 1).
+There are cognitive biases associated with each type of thinking
+** Resistance towards improving rationality of a system by its designers
+Because it creates difficulties for the leadership
+
+

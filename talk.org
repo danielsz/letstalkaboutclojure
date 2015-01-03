@@ -18,18 +18,28 @@ It makes sense from an evolutionary point of view: heuristics speed up the proce
 #+BEGIN_QUOTE
 Psychologists concur with philosophers in the irrelevance of logic to everyday reasoning. Decades of work on Wason’s selection task seem to confirm this. — Pascal Engels
 #+END_QUOTE
-** The brain
-We have a terribly poor understanding of what goes on in the brain. We are completely unable to simulate it, and we cannot even recognize what the general form of this computation is, despite decades of experimental data from neurobiologists. 
-** Thinking about thinking
-The fact is that the brain can reason about itself. It is able to make reflective assessments, meta-deductions. It can think in abstractions, recognize patterns and formalize processes. It has notions of inference and validity, and our intuitions are wired to these parts.
-Philoshophy and mathematics have been a human activity for as far back as written records exist.
-** Computation
-Computation is a process following a well-defined model expressed as, for example, an algorithm, or a protocol.
-** Models of computation
+** Thinking, Fast and Slow
+Following Daniel Kahneman’s terminology, the brain works in two modes, system 1 and system 2. System 1 is the thinking that is fast, intuitive, and unaware of its workings. System 2 is the slow thinking able to correct system 1’s mistakes. The problem is that we often fail to recognize when we need to switch gear and slow down. 
+** So, programming are we?
+Question: When we program, do we use system 1 or system 2?
+** Well
+We use both. When we learn or face a difficult part of the program, we use system 2, but most of the time we’ll try to maximize system 1 and proceed fast to use what we’ve learnt, what we already know.
+** Regularity
+Learnability of a system (programming language) depends on the regularity it provides. When we learn a language, We develop intuitions around it. We are able to predict that the runtime is going to do y if we write x. 
+** How do you infuse regularity to a programming language?
+By making it adhere to well-defined rules. 
+#+BEGIN_QUOTE
+Computation is a process following a well-defined model expressed as, for example, an algorithm, or a protocol. — Wikipedia
+#+END_QUOTE
+Models of computation are extremely useful to inventors/designers of high-level programming languages.
+#+BEGIN_QUOTE
+Civilization advances by extending the number of important operations which we can perform without thinking about them" — Alfred North Whitehead
+#+END_QUOTE
+** Models of computation, some examples
 Turing Machines, Cellular Automata, Finite State Machines, Stack Machines, Graph Automata, Lambda Calculus, Fractran, Tiling Systems, Chemical Reaction Systems, Hopfield Networks, Boltzmann Machines, Neural Networks, Circuits, Graphical Models, Boolean Algebra, String Rewriting Systems, Semigroups, Quantum Waves, Diophantine Equations, Tag Systems, The Actor Model, etc.
 ** Models of computation
-- Models of computation are extremely useful to inventors/designer of high-level programming languages.
-- Some models of computations are more succesful than others. 
+- Some models of computations are more succesful than others.
+- [[https://github.com/Dobiasd/articles/blob/master/programming_language_learning_curves.md][Learning Curves for several programming languages]]
 - Lambda Calculus is at the heart of two of the most highly regarded programming languages: Haskell and Lisp.
 ** Lambda Calculus
 Alonzo Church developed a notation for arbitrary functions. His notation is called λ-calculus (“lambda calculus”). Church introduced his formalism to give a functional foundation for Mathematics but in the end mathematicians preferred (axiomatic) set theory. The λ-calculus was re-discovered as a versatile tool in Computer Science by people like McCarthy, Strachey, Landin, and Scott in the 1960s.
@@ -40,7 +50,7 @@ If you have seven primitive operators (quote, atom, eq, car, cdr, cons, and cond
 [[https://leanpub.com/readevalprintlove002][A primordial Lisp described in detail.]]
 ** S-expressions
 #+BEGIN_SRC clojure
-(1 2 3)
+(a 1 2)
 #+END_SRC  
 With S-expressions, code and data share the same representation.
 ** Lisp takes off
@@ -92,12 +102,6 @@ Whereas an object-oriented mindset will foster the approach of defining an appli
 Clojure was born out of frustration provoked in large part by the complexities of concurrent programming, complicated by the weaknesses of object-oriented programming in facilitating it. 
 ** Simple made easy
 [[http://www.infoq.com/presentations/Simple-Made-Easy][Infoq video]]
-** Complexity
-#+BEGIN_QUOTE
-Civilization advances by extending the number of important operations which we can perform without thinking about them" — Alfred North Whitehead
-#+END_QUOTE
-** Learning Curves for different programming languages
-[[https://github.com/Dobiasd/articles/blob/master/programming_language_learning_curves.md][Learning Curves]]
 ** Enlightenment
 #+BEGIN_QUOTE
 Lisp is worth learning for the profound enlightenment experience you will have when you finally get it; that experience will make you a better programmer for the rest of your days, even if you never actually use Lisp itself a lot." — Eric Raymond
@@ -107,7 +111,7 @@ Lisp is worth learning for the profound enlightenment experience you will have w
 #+END_QUOTE
 * Part II: Data oriented programming
 ** Syntactic abstraction
-The argument in the case of Lisps is that of extensibility. No special power to the language designers over its users.
+The argument making the case for Lisp languages is that of extensibility. No special power to the language designers over its users.
 ** Homoiconicity
 Traditionally, the most defining feature of Lisp. This is a property of homoiconic languages. 
 ** Clojure’s characteristics
@@ -119,8 +123,17 @@ In Clojure: Data -> Functions -> Macros.
 - Concurrency primitives to work with data on multiple cores
 ** Stories
 With all the potential of a modern Lisp, a perfect storm is brewing for a wave of innovation.
+Clojure has strong stories for: Big data, interactive art (games, music, visuals), web development. 
+** Web development
 Rethink browser client development: Clojurescript, core.async and Om.
-
+** A DOM of Doom
+#+BEGIN_QUOTE
+The browser is a vast source of incompatibility, pain and misery. — Douglas Crockford
+#+END_QUOTE
+[[https://www.youtube.com/watch?v%3DY2Y0U-2qJMs][An Inconvenient API - The Theory of the DOM]] by Douglas Crockford
+#+BEGIN_QUOTE
+Basically, bugs don’t get fixed in the web. — Douglas Crockford
+#+END_QUOTE
 * Part III: Clojurescript, core.async and Om
 #+BEGIN_QUOTE
 “There is no such thing as philosophy-free science; there is only science whose philosophical baggage is taken on board without examination.
