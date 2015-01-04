@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/2.6.2/css/reveal.min.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/2.6.2/css/theme/moon.css" id="theme"/>
-
+<link rel="stylesheet" href="css/tables.css"/>
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
     if( window.location.search.match( /print-pdf/gi ) ) {
@@ -436,6 +436,110 @@ Clojure has strong stories for:
 </li>
 </ul>
 </section>
+<section id="sec-2-11" >
+
+<h3>Concurrency</h3>
+<p>
+Two types of concurrency:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Shared memory</th>
+<th scope="col" class="left">Message passing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Threads</td>
+<td class="left">Processes</td>
+</tr>
+
+<tr>
+<td class="left">Locks</td>
+<td class="left">Messages</td>
+</tr>
+
+<tr>
+<td class="left">Mutexes</td>
+<td class="left">No shared data</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Which does Clojure support?
+</p>
+
+</section>
+<section id="sec-2-12" >
+
+<h3>JVM</h3>
+<p>
+Clojure does not replace the Java thread system, rather it works with it. 
+</p>
+<p class="fragment roll-in">
+The software transactional memory system (STM) supports sharing changing state between threads in a synchronous and coordinated manner. 
+</p>
+<p class="fragment roll-in">
+The agent system supports sharing changing state between threads in an asynchronous and independent manner. 
+</p>
+<p class="fragment roll-in">
+The atoms system supports sharing changing state between threads in a synchronous and independent manner. 
+</p>
+<p class="fragment roll-in">
+The dynamic var system supports isolating changing state within threads.
+</p>
+</section>
+<section id="sec-2-13" >
+
+<h3>CSP vs Actor model</h3>
+<p>
+The Actor Model and CSP diverge in their semantics of message passing.
+</p>
+</section>
+<section>
+<img src=http://arild.github.io/csp-presentation/images/csp_illustration1.png>
+<ul class="org-ul">
+<li>Communication through channels
+</li>
+<li>Processes are "anonymous"
+</li>
+</ul>
+</section>
+<section>
+<img src=http://arild.github.io/csp-presentation/images/actor_illustration1.png>
+<ul class="org-ul">
+<li>Point-to-point communication
+</li>
+<li>No anonymity
+</li>
+</ul>
+</section>
+<section id="sec-2-14" >
+
+<h3>CSP</h3>
+<p>
+Communicating Sequential Processes (CSP) is a formal language for describing patterns of interaction in concurrent systems.
+</p>
+<blockquote>
+<p>
+One of the most successful models for providing high-level linguistic support for concurrency comes from Hoare's Communicating Sequential Processes, or CSP. 
+</p>
+</blockquote>
+<p>
+Implemented as a library in Clojure(script).
+</p>
+</section>
+
 </section>
 <section>
 <section id="sec-3" >
@@ -455,10 +559,6 @@ The browser is a vast source of incompatibility, pain and misery. — Douglas Cr
 </blockquote>
 
 <iframe width="420" height="315" src="http://www.youtube.com/embed/Y2Y0U-2qJMs" frameborder="0" allowfullscreen></iframe>
-
-<p>
-<a href="https://www.youtube.com/watch?v=Y2Y0U-2qJMs">An Inconvenient API - The Theory of the DOM</a> by Douglas Crockford
-</p>
 
 <blockquote>
 <p>

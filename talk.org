@@ -2,6 +2,7 @@
 #+AUTHOR: Daniel Szmulewicz & Daniel Slutsky
 #+EMAIL: 
 #+REVEAL_THEME: moon
+#+REVEAL_EXTRA_CSS: css/tables.css
 #+OPTIONS: num:nil toc:nil
 #+Title: Let's talk about Clojure
 
@@ -177,6 +178,44 @@ Clojure has strong stories for:
 - Big data 
 - Interactive art (games, music, visuals)
 - Web development
+** Concurrency
+Two types of concurrency:
+
+| Shared memory | Message passing |
+|---------------+-----------------|
+| Threads       | Processes       |
+| Locks         | Messages        |
+| Mutexes       | No shared data  |
+
+#+REVEAL: split
+Which does Clojure support?
+
+** Shared Memory
+Clojure does not replace the Java thread system, rather it works with it. 
+#+ATTR_REVEAL: :frag roll-in
+The software transactional memory system (STM) supports sharing changing state between threads in a synchronous and coordinated manner. 
+#+ATTR_REVEAL: :frag roll-in
+The agent system supports sharing changing state between threads in an asynchronous and independent manner. 
+#+ATTR_REVEAL: :frag roll-in
+The atoms system supports sharing changing state between threads in a synchronous and independent manner. 
+#+ATTR_REVEAL: :frag roll-in
+The dynamic var system supports isolating changing state within threads.
+** Message passing
+Communicating Sequential Processes (CSP) is a formal language for describing patterns of interaction in concurrent systems.
+#+BEGIN_QUOTE
+One of the most successful models for providing high-level linguistic support for concurrency comes from Hoare's Communicating Sequential Processes, or CSP. 
+#+END_QUOTE
+Implemented as a library in Clojure(script).
+** CSP vs Actor model
+The Actor Model and CSP diverge in their semantics of message passing.
+#+REVEAL: split
+#+REVEAL_HTML: <img src=http://arild.github.io/csp-presentation/images/csp_illustration1.png>
+- Communication through channels
+- Processes are "anonymous"
+#+REVEAL: split
+#+REVEAL_HTML: <img src=http://arild.github.io/csp-presentation/images/actor_illustration1.png>
+- Point-to-point communication
+- No anonymity
 * Part III: Functional development in the browser
 Rethinking web development with Clojurescript, core.async and Om.
 ** A DOM of Doom
