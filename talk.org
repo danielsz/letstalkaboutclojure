@@ -39,9 +39,10 @@ Civilization advances by extending the number of important operations which we c
 ** Models of computation, some examples
 Turing Machines, Cellular Automata, Finite State Machines, Stack Machines, Graph Automata, Lambda Calculus, Fractran, Tiling Systems, Chemical Reaction Systems, Hopfield Networks, Boltzmann Machines, Neural Networks, Circuits, Graphical Models, Boolean Algebra, String Rewriting Systems, Semigroups, Quantum Waves, Diophantine Equations, Tag Systems, The Actor Model, etc.
 ** Models of computation
-- Some models of computations are more succesful than others.
-- [[https://github.com/Dobiasd/articles/blob/master/programming_language_learning_curves.md][Learning Curves for several programming languages]]
 - Lambda Calculus is at the heart of the most highly regarded programming languages: Haskell, ML and Lisp.
+
+- [[https://github.com/Dobiasd/articles/blob/master/programming_language_learning_curves.md][Learning Curves for several programming languages]]
+
 ** Lambda Calculus
 Alonzo Church developed a notation for arbitrary functions. His notation is called λ-calculus (“lambda calculus”). Church introduced his formalism to give a functional foundation for Mathematics but in the end mathematicians preferred (axiomatic) set theory. The λ-calculus was re-discovered as a versatile tool in Computer Science by people like McCarthy, Strachey, Landin, and Scott in the 1960s.
 ** Haskell
@@ -66,11 +67,26 @@ Dumping out GHC’s intermediate structures:
 ghc -ddump-simpl
 #+END_QUOTE
 
+#+BEGIN_QUOTE 
+The fact that everything can be explained in terms of translation to that small language, is an incredible sanity check. It means if you invent some wild feature in the source language, if you can’t translate it in the intermediate language, well, maybe it’s too wild! It’s a sanity check on the language design.
+#+END_QUOTE
+
 ** Bill Burdick’s entertaining experiments
 #+REVEAL_HTML: <img src=images/space-invaders.png></img>
 - [[Http://tinyconcepts.com/invaders.html][Space invaders]]
 - [[http://tinyconcepts.com/fs.pl/lambda.fsl/doc/tip/evaluator.html][Lambda Calculus compiler and interpreter in Javascript]]
 
+** Differences between Lisp and Lambda Calculus
+In Lisp, expressions are evaluated. In Lambda Calculus, expressions are reduced.
+
+- α-conversion (changing bound variables)
+- β-reduction (function application)
+- η-conversion (expresses the idea of extensionality)
+
+Lisp has non-functional data, like atoms and numbers and such, so this would count as untyped lambda calculus extended with constants.
+
+[[http://kazimirmajorinc.blogspot.co.il/2011/01/some-differences-between-lambda.html][Some differences between lambda-calculus and Lisp]]
+[[http://stackoverflow.com/questions/2750421/what-type-of-lambda-calculus-would-lisp-loosely-be-an-example-of][What type of lambda calculus would Lisp loosely be an example of?]]
 ** What did McCarthy discover?
 #+BEGIN_QUOTE
 If you try to answer the question, what is the smallest number of operators you need in order to write an interpreter for a language in itself, Lisp is what you get. In other words, Lisp is not something John McCarthy invented, so much as something he discovered. – Paul Graham
@@ -80,7 +96,11 @@ If you have seven primitive operators (quote, atom, eq, car, cdr, cons, and cond
 
 [[https://leanpub.com/readevalprintlove002][A primordial Lisp described in detail.]]
 
-Lisp has non-functional data, like atoms and numbers and such, so this would count as "untyped lambda calculus extended with constants."
+** Syntax
+#+BEGIN_QUOTE
+ALGOL 68 was defined using a two-level grammar formalism invented by Adriaan van Wijngaarden and which bears his name. Van Wijngaarden grammars use a context-free grammar to generate an infinite set of productions that will recognize a particular ALGOL 68 program.
+#+END_QUOTE
+Most modern languages derive their syntax from C, and C derives its syntax from Algol. So they are often called C-like languages, or ALGOL-family languages.
 ** S-expressions
 S-expressions are a notation for tree-structured data, invented for and popularized by the programming language Lisp, which uses them for source code as well as data.
 #+REVEAL_HTML: <img src="http://upload.wikimedia.org/wikipedia/en/e/e3/Corrected_S-expression_tree_2.png"  height="242" width="242">
@@ -96,11 +116,6 @@ S-expressions are an accident of History. M-expressions were intented to be the 
 The initial implementation of Lisp was expected to be a very long process, as compilers at the time were expected to take years to write. Implementation began with hand-compiling particular functions while the M-expression sublanguage was still tentative.
 #+END_QUOTE
 Hand-compiling the function eval is a very easy task, and a community of S-expression Lisp programmers quickly developed. M-expressions fell into neglect, and were never implemented.
-** Context-free grammar (ALGOL-derived syntax)
-Most modern programming languages (C, Java, Ruby, Perl)  are designed with context-free grammars. They are often called C-like languages, or ALGOL-family languages. 
-#+BEGIN_QUOTE
-ALGOL 68 was defined using a two-level grammar formalism invented by Adriaan van Wijngaarden and which bears his name. Van Wijngaarden grammars use a context-free grammar to generate an infinite set of productions that will recognize a particular ALGOL 68 program. — Wikipedia
-#+END_QUOTE
 ** Lisp takes off
 LISP became a common language for artificial intelligence (AI) programming, partly owing to the confluence of LISP and AI work at MIT and partly because AI programs capable of "learning" could be written in LISP as self-modifying programs. Since then, it has expanded in a family of dialects, regularly reincarnating in new shape and form but always retaining the same core semantics.
 ** The importance of Lisp in the industry
