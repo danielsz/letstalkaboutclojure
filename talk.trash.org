@@ -1,3 +1,7 @@
+#+BEGIN_QUOTE
+“There is no such thing as philosophy-free science; there is only science whose philosophical baggage is taken on board without examination.
+—Daniel Dennett, Darwin's Dangerous Idea, 1995”
+#+END_QUOTE
 Meeting resistance when trying to rationalize a system. 
 We have a terribly poor understanding of what goes on in the brain. We are completely unable to simulate it, and we cannot even recognize what the general form of this computation is, despite decades of experimental data from neurobiologists.
 ** Thinking about thinking

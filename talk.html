@@ -68,87 +68,201 @@ Psychologists concur with philosophers in the irrelevance of logic to everyday r
 </section>
 <section id="sec-1-4" >
 
-<h3>The brain</h3>
+<h3>Thinking, Fast and Slow</h3>
 <p>
-We have a terribly poor understanding of what goes on in the brain. We are completely unable to simulate it, and we cannot even recognize what the general form of this computation is, despite decades of experimental data from neurobiologists. 
+Following Daniel Kahneman’s terminology, the brain works in two modes, system 1 and system 2. System 1 is the thinking that is fast, intuitive, and unaware of its workings. System 2 is the slow thinking able to correct system 1’s mistakes. The problem is that we often fail to recognize when we need to switch gear and slow down. 
 </p>
 </section>
 <section id="sec-1-5" >
 
-<h3>Thinking about thinking</h3>
+<h3>So, programming are we?</h3>
 <p>
-The fact is that the brain can reason about itself. It is able to make reflective assessments, meta-deductions. It can think in abstractions, recognize patterns and formalize processes. It has notions of inference and validity, and our intuitions are wired to these parts.
-Philoshophy and mathematics have been a human activity for as far back as written records exist.
+Question: When we program, do we use system 1 or system 2?
+</p>
+<p class="fragment roll-in">
+We use both. When we learn or face a difficult part of the program, we use system 2, but most of the time we’ll try to maximize system 1 and proceed fast to use what we’ve learnt, what we already know.
 </p>
 </section>
 <section id="sec-1-6" >
 
-<h3>Computation</h3>
+<h3>Regularity</h3>
 <p>
-Computation is a process following a well-defined model expressed as, for example, an algorithm, or a protocol.
+Learnability of a system (programming language) depends on the regularity it provides. When we learn a language, We develop intuitions around it. We are able to predict that the runtime is going to do y if we write x. 
 </p>
 </section>
 <section id="sec-1-7" >
 
-<h3>Models of computation</h3>
+<h3>How do you infuse regularity to a programming language?</h3>
+<p>
+By making it adhere to well-defined rules.
+</p>
+<blockquote>
+<p>
+Computation is a process following a well-defined model expressed as, for example, an algorithm, or a protocol. — Wikipedia
+</p>
+</blockquote>
+<p>
+Models of computation are extremely useful to inventors/designers of high-level programming languages.
+</p>
+<blockquote>
+<p>
+Civilization advances by extending the number of important operations which we can perform without thinking about them" — Alfred North Whitehead
+</p>
+</blockquote>
+</section>
+<section id="sec-1-8" >
+
+<h3>Models of computation, some examples</h3>
 <p>
 Turing Machines, Cellular Automata, Finite State Machines, Stack Machines, Graph Automata, Lambda Calculus, Fractran, Tiling Systems, Chemical Reaction Systems, Hopfield Networks, Boltzmann Machines, Neural Networks, Circuits, Graphical Models, Boolean Algebra, String Rewriting Systems, Semigroups, Quantum Waves, Diophantine Equations, Tag Systems, The Actor Model, etc.
 </p>
 </section>
-<section id="sec-1-8" >
+<section id="sec-1-9" >
 
 <h3>Models of computation</h3>
 <ul class="org-ul">
-<li>Models of computation are extremely useful to inventors/designer of high-level programming languages.
+<li>Some models of computations are more succesful than others.
 </li>
-<li>Some models of computations are more succesful than others. 
+<li><a href="https://github.com/Dobiasd/articles/blob/master/programming_language_learning_curves.md">Learning Curves for several programming languages</a>
 </li>
-<li>Lambda Calculus is at the heart of two of the most highly regarded programming languages: Haskell and Lisp.
+<li>Lambda Calculus is at the heart of the most highly regarded programming languages: Haskell, ML and Lisp.
 </li>
 </ul>
 </section>
-<section id="sec-1-9" >
+<section id="sec-1-10" >
 
 <h3>Lambda Calculus</h3>
 <p>
 Alonzo Church developed a notation for arbitrary functions. His notation is called λ-calculus (“lambda calculus”). Church introduced his formalism to give a functional foundation for Mathematics but in the end mathematicians preferred (axiomatic) set theory. The λ-calculus was re-discovered as a versatile tool in Computer Science by people like McCarthy, Strachey, Landin, and Scott in the 1960s.
 </p>
 </section>
-<section id="sec-1-10" >
+<section id="sec-1-11" >
+
+<h3>Haskell</h3>
+<blockquote>
+<p>
+The thing I am the proudest of is that 25 years since we built the first prototype of GHC, its intermediate language is still the Lambda Calculus. So it really takes this enormous language – I mean, Haskell is really a very big language now — and it squeezes it all down into this tiny little language that really just has variables, application, lambda, let – you don’t really need let, but it’s very helpful – case and then the only thing we’ve added recently is  coercions, a single addition to the intermediate language in 25 years, which is just amazing. — Simon Peyton Jones
+</p>
+</blockquote>
+
+<aside class="notes">
+<p>
+The Glasgow Haskell Compiler (GHC) uses an intermediate language, called “Core,” as its internal program representation within the compiler’s simplification phase. Core resembles a subset of Haskell, but with explicit type annotations in the style of the polymorphic lambda calculus (Fω).
+</p>
+
+<p>
+ghc-core: A convenient command line wrapper for GHC that displays GHC's optimised core and assembly output in a human readable, colourised manner, in a pager. Unix systems only, currently.
+</p>
+
+<blockquote>
+<p>
+That’s all it is. And it’s testament to the expressiveness of system F, John C. Reynold’s work. — Simon Peyton Jone
+</p>
+</blockquote>
+</aside>
+
+</section>
+<section>
+
+<p>
+Dumping out GHC’s intermediate structures:
+</p>
+<blockquote>
+<p>
+ghc -ddump-simpl
+</p>
+</blockquote>
+
+</section>
+<section id="sec-1-12" >
+
+<h3>Bill Burdick’s entertaining experiments</h3>
+<img src=images/space-invaders.png></img>
+<ul class="org-ul">
+<li><a href="//tinyconcepts.com/invaders.html">Space invaders</a>
+</li>
+<li><a href="http://tinyconcepts.com/fs.pl/lambda.fsl/doc/tip/evaluator.html">Lambda Calculus compiler and interpreter in Javascript</a>
+</li>
+</ul>
+
+</section>
+<section id="sec-1-13" >
 
 <h3>What did McCarthy discover?</h3>
+<blockquote>
 <p>
-If you try to answer the question, what is the smallest number of operators you need in order to write an interpreter for a language in itself, Lisp is what you get. In other words, Lisp is not something John McCarthy invented, so much as something he discovered.
+If you try to answer the question, what is the smallest number of operators you need in order to write an interpreter for a language in itself, Lisp is what you get. In other words, Lisp is not something John McCarthy invented, so much as something he discovered. – Paul Graham
 </p>
+</blockquote>
 </section>
-<section id="sec-1-11" >
+<section id="sec-1-14" >
 
 <h3>Seven operators</h3>
 <p>
 If you have seven primitive operators (quote, atom, eq, car, cdr, cons, and cond) then you can define another function, eval, that acts as a Lisp interpreter.
+</p>
+
+<p>
 <a href="https://leanpub.com/readevalprintlove002">A primordial Lisp described in detail.</a>
 </p>
+
+<p>
+Lisp has non-functional data, like atoms and numbers and such, so this would count as "untyped lambda calculus extended with constants."
+</p>
 </section>
-<section id="sec-1-12" >
+<section id="sec-1-15" >
 
 <h3>S-expressions</h3>
+<p>
+S-expressions are a notation for tree-structured data, invented for and popularized by the programming language Lisp, which uses them for source code as well as data.
+</p>
+<img src="http://upload.wikimedia.org/wikipedia/en/e/e3/Corrected_S-expression_tree_2.png"  height="242" width="242">
+
 <div class="org-src-container">
 
-<pre  class="src src-clojure"><span style="color: #2aa198;">(</span>1 2 3<span style="color: #2aa198;">)</span>
+<pre  class="src src-clojure"><span style="color: #2aa198;">(</span>* 2 <span style="color: #b58900;">(</span>+ 3 4<span style="color: #b58900;">)</span><span style="color: #2aa198;">)</span>
 </pre>
 </div>
+
 <p>
 With S-expressions, code and data share the same representation.
 </p>
 </section>
-<section id="sec-1-13" >
+<section id="sec-1-16" >
+
+<h3>M-expressions</h3>
+<p>
+S-expressions are an accident of History. M-expressions were intented to be the user syntax. S-expressions were intended to be an intermediate language.
+</p>
+<blockquote>
+<p>
+The initial implementation of Lisp was expected to be a very long process, as compilers at the time were expected to take years to write. Implementation began with hand-compiling particular functions while the M-expression sublanguage was still tentative.
+</p>
+</blockquote>
+<p>
+Hand-compiling the function eval is a very easy task, and a community of S-expression Lisp programmers quickly developed. M-expressions fell into neglect, and were never implemented.
+</p>
+</section>
+<section id="sec-1-17" >
+
+<h3>Context-free grammar (ALGOL-derived syntax)</h3>
+<p>
+Most modern programming languages (C, Java, Ruby, Perl)  are designed with context-free grammars. They are often called C-like languages, or ALGOL-family languages. 
+</p>
+<blockquote>
+<p>
+ALGOL 68 was defined using a two-level grammar formalism invented by Adriaan van Wijngaarden and which bears his name. Van Wijngaarden grammars use a context-free grammar to generate an infinite set of productions that will recognize a particular ALGOL 68 program. — Wikipedia
+</p>
+</blockquote>
+</section>
+<section id="sec-1-18" >
 
 <h3>Lisp takes off</h3>
 <p>
 LISP became a common language for artificial intelligence (AI) programming, partly owing to the confluence of LISP and AI work at MIT and partly because AI programs capable of "learning" could be written in LISP as self-modifying programs. Since then, it has expanded in a family of dialects, regularly reincarnating in new shape and form but always retaining the same core semantics.
 </p>
 </section>
-<section id="sec-1-14" >
+<section id="sec-1-19" >
 
 <h3>The importance of Lisp in the industry</h3>
 <p>
@@ -175,14 +289,43 @@ Contributions to programming as we know it today. A long list of ideas that orig
 </ul>
 
 </section>
-<section id="sec-1-15" >
+<section id="sec-1-20" >
+
+<h3>Syntactic abstraction</h3>
+<p>
+The argument making the case for Lisp languages is that of extensibility. No special power to the language designers over its users. This is a property of homoiconic languages. Traditionally, the most defining feature of Lisp.  
+</p>
+</section>
+<section id="sec-1-21" >
+
+<h3>Enlightenment</h3>
+<blockquote>
+<p>
+Lisp is worth learning for the profound enlightenment experience you will have when you finally get it; that experience will make you a better programmer for the rest of your days, even if you never actually use Lisp itself a lot. — Eric Raymond
+</p>
+</blockquote>
+<blockquote>
+<p>
+90% of what you learn while studying your first Lisp will carry over to your next. — Psyllo, Stack Overflow
+</p>
+</blockquote>
+</section>
+</section>
+<section>
+<section id="sec-2" >
+
+<h2>Part II: Clojure</h2>
+</section>
+<section id="sec-2-1" >
 
 <h3>Clojure is a Lisp</h3>
+<blockquote>
 <p>
 Clojure is pronounced exactly like closure, where the s/j has the zh sound as in azure, pleasure etc. The name was chosen to be unique. I wanted to involve c (c#), l (lisp) and j (java). Once I came up with Clojure, given the pun on closure, the available domains and vast emptiness of the googlespace, it was an easy decision. — Rich Hickey
 </p>
+</blockquote>
 </section>
-<section id="sec-1-16" >
+<section id="sec-2-2" >
 
 <h3>Closure</h3>
 <div class="org-src-container">
@@ -207,7 +350,7 @@ Sometimes it's called a closure, other times a saved lexical environment. Or, as
 </pre>
 </div>
 </section>
-<section id="sec-1-17" >
+<section id="sec-2-3" >
 
 <h3>Closures are fundamental</h3>
 <p>
@@ -219,7 +362,7 @@ Because of this, lisp programmers often don't think in terms of classes and obje
 </p>
 </blockquote>
 </section>
-<section id="sec-1-18" >
+<section id="sec-2-4" >
 
 <h3>Closures and OO</h3>
 <blockquote>
@@ -228,7 +371,7 @@ It's possible, for instance, to implement almost all of the design patterns in t
 </p>
 </blockquote>
 </section>
-<section id="sec-1-19" >
+<section id="sec-2-5" >
 
 <h3>Functional vs OO</h3>
 <blockquote>
@@ -237,59 +380,112 @@ Whereas an object-oriented mindset will foster the approach of defining an appli
 </p>
 </blockquote>
 </section>
-<section id="sec-1-20" >
+<section id="sec-2-6" >
 
 <h3>Clojure's motivation</h3>
 <p>
 Clojure was born out of frustration provoked in large part by the complexities of concurrent programming, complicated by the weaknesses of object-oriented programming in facilitating it. 
 </p>
 </section>
-<section id="sec-1-21" >
+<section id="sec-2-7" >
 
 <h3>Simple made easy</h3>
 <p>
+Something is simple if it is singular: it does one thing, it is made of one thing, etc. Something is easy if it is close at hand, i.e. familiar. Simplicity is objective; easiness is subjective and can be complex. 
+</p>
+
+<p>
 <a href="http://www.infoq.com/presentations/Simple-Made-Easy">Infoq video</a>
 </p>
-</section>
-<section id="sec-1-22" >
 
-<h3>Complexity</h3>
-<blockquote>
-<p>
-Civilization advances by extending the number of important operations which we can perform without thinking about them" — Alfred North Whitehead
-</p>
-</blockquote>
 </section>
-<section id="sec-1-23" >
+<section id="sec-2-8" >
 
-<h3>Learning Curves for different programming languages</h3>
+<h3>Clojure’s characteristics</h3>
 <p>
-<a href="https://github.com/Dobiasd/articles/blob/master/programming_language_learning_curves.md">Learning Curves</a>
+In Clojure: Data -&gt; Functions -&gt; Macros.
 </p>
 </section>
-<section id="sec-1-24" >
+<section id="sec-2-9" >
 
-<h3>Enlightenment</h3>
-<blockquote>
-<p>
-Lisp is worth learning for the profound enlightenment experience you will have when you finally get it; that experience will make you a better programmer for the rest of your days, even if you never actually use Lisp itself a lot." — Eric Raymond
-</p>
-</blockquote>
-<p>
-How then can we write correct programs in our everyday work? 
-</p>
+<h3>Embrace the data</h3>
+<ul class="org-ul">
+<li>Persistent data structure
+</li>
+<li>Immutability
+</li>
+<li>Reader syntax for maps, vectors, and sets
+</li>
+<li>Concurrency primitives to work with data on multiple cores
+</li>
+</ul>
 </section>
-</section>
-<section>
-<section id="sec-2" >
+<section id="sec-2-10" >
 
-<h2>Part II: General Clojure introduction</h2>
+<h3>Stories</h3>
+<p>
+With the potentials of a modern Lisp and a growing community of smart users, a perfect storm is brewing for a wave of innovation.
+Clojure has strong stories for: 
+</p>
+<ul class="org-ul">
+<li>Big data 
+</li>
+<li>Interactive art (games, music, visuals)
+</li>
+<li>Web development
+</li>
+</ul>
 </section>
 </section>
 <section>
 <section id="sec-3" >
 
-<h2>Part III: Clojurescript, core.async and Om</h2>
+<h2>Part III: Functional development in the browser</h2>
+<p>
+Rethinking web development with Clojurescript, core.async and Om.
+</p>
+</section>
+<section id="sec-3-1" >
+
+<h3>A DOM of Doom</h3>
+<blockquote>
+<p>
+The browser is a vast source of incompatibility, pain and misery. — Douglas Crockford
+</p>
+</blockquote>
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/Y2Y0U-2qJMs" frameborder="0" allowfullscreen></iframe>
+
+<p>
+<a href="https://www.youtube.com/watch?v=Y2Y0U-2qJMs">An Inconvenient API - The Theory of the DOM</a> by Douglas Crockford
+</p>
+
+<blockquote>
+<p>
+Basically, bugs don’t get fixed in the web. — Douglas Crockford
+</p>
+</blockquote>
+</section>
+<section id="sec-3-2" >
+
+<h3>Cross-platform libraries and frameworks</h3>
+<blockquote>
+<p>
+Why are there so many of them? Because there’s a real need. The APIs provided by the browsers are inadequate for doing applications. But Javascript is such a powerful language that it is easily remedied. That’s one reason. Second, they are fun to make, creating little communities of interest around their work. — Douglas Crockford
+</p>
+</blockquote>
+</section>
+<section id="sec-3-3" >
+
+<h3>React</h3>
+<blockquote>
+<p>
+The framework cannot know to separate concerns for you. A React component is a highly cohesive building block for UIs loosely coupled with other components. — Pete Hunt
+</p>
+</blockquote>
+<p>
+Javacript rendering library. Conceptually re-renders on every change. No templating language. Virtual DOM. Diffs for optimization.
+</p>
 </section>
 </section>
 </div>

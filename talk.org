@@ -22,12 +22,12 @@ Psychologists concur with philosophers in the irrelevance of logic to everyday r
 Following Daniel Kahneman’s terminology, the brain works in two modes, system 1 and system 2. System 1 is the thinking that is fast, intuitive, and unaware of its workings. System 2 is the slow thinking able to correct system 1’s mistakes. The problem is that we often fail to recognize when we need to switch gear and slow down. 
 ** So, programming are we?
 Question: When we program, do we use system 1 or system 2?
-** Well
+#+ATTR_REVEAL: :frag roll-in
 We use both. When we learn or face a difficult part of the program, we use system 2, but most of the time we’ll try to maximize system 1 and proceed fast to use what we’ve learnt, what we already know.
 ** Regularity
 Learnability of a system (programming language) depends on the regularity it provides. When we learn a language, We develop intuitions around it. We are able to predict that the runtime is going to do y if we write x. 
 ** How do you infuse regularity to a programming language?
-By making it adhere to well-defined rules. 
+By making it adhere to well-defined rules.
 #+BEGIN_QUOTE
 Computation is a process following a well-defined model expressed as, for example, an algorithm, or a protocol. — Wikipedia
 #+END_QUOTE
@@ -40,19 +40,66 @@ Turing Machines, Cellular Automata, Finite State Machines, Stack Machines, Graph
 ** Models of computation
 - Some models of computations are more succesful than others.
 - [[https://github.com/Dobiasd/articles/blob/master/programming_language_learning_curves.md][Learning Curves for several programming languages]]
-- Lambda Calculus is at the heart of two of the most highly regarded programming languages: Haskell and Lisp.
+- Lambda Calculus is at the heart of the most highly regarded programming languages: Haskell, ML and Lisp.
 ** Lambda Calculus
 Alonzo Church developed a notation for arbitrary functions. His notation is called λ-calculus (“lambda calculus”). Church introduced his formalism to give a functional foundation for Mathematics but in the end mathematicians preferred (axiomatic) set theory. The λ-calculus was re-discovered as a versatile tool in Computer Science by people like McCarthy, Strachey, Landin, and Scott in the 1960s.
+** Haskell
+#+BEGIN_QUOTE
+The thing I am the proudest of is that 25 years since we built the first prototype of GHC, its intermediate language is still the Lambda Calculus. So it really takes this enormous language – I mean, Haskell is really a very big language now — and it squeezes it all down into this tiny little language that really just has variables, application, lambda, let – you don’t really need let, but it’s very helpful – case and then the only thing we’ve added recently is  coercions, a single addition to the intermediate language in 25 years, which is just amazing. — Simon Peyton Jones
+#+END_QUOTE
+
+#+BEGIN_NOTES 
+The Glasgow Haskell Compiler (GHC) uses an intermediate language, called “Core,” as its internal program representation within the compiler’s simplification phase. Core resembles a subset of Haskell, but with explicit type annotations in the style of the polymorphic lambda calculus (Fω).
+
+ghc-core: A convenient command line wrapper for GHC that displays GHC's optimised core and assembly output in a human readable, colourised manner, in a pager. Unix systems only, currently.
+
+#+BEGIN_QUOTE
+That’s all it is. And it’s testament to the expressiveness of system F, John C. Reynold’s work. — Simon Peyton Jone
+#+END_QUOTE
+#+END_NOTES
+
+#+REVEAL: split
+
+Dumping out GHC’s intermediate structures:
+#+BEGIN_QUOTE shell
+ghc -ddump-simpl
+#+END_QUOTE
+
+** Bill Burdick’s entertaining experiments
+#+REVEAL_HTML: <img src=images/space-invaders.png></img>
+- [[Http://tinyconcepts.com/invaders.html][Space invaders]]
+- [[http://tinyconcepts.com/fs.pl/lambda.fsl/doc/tip/evaluator.html][Lambda Calculus compiler and interpreter in Javascript]]
+
 ** What did McCarthy discover?
-If you try to answer the question, what is the smallest number of operators you need in order to write an interpreter for a language in itself, Lisp is what you get. In other words, Lisp is not something John McCarthy invented, so much as something he discovered.
+#+BEGIN_QUOTE
+If you try to answer the question, what is the smallest number of operators you need in order to write an interpreter for a language in itself, Lisp is what you get. In other words, Lisp is not something John McCarthy invented, so much as something he discovered. – Paul Graham
+#+END_QUOTE
 ** Seven operators
 If you have seven primitive operators (quote, atom, eq, car, cdr, cons, and cond) then you can define another function, eval, that acts as a Lisp interpreter.
+
 [[https://leanpub.com/readevalprintlove002][A primordial Lisp described in detail.]]
+
+Lisp has non-functional data, like atoms and numbers and such, so this would count as "untyped lambda calculus extended with constants."
 ** S-expressions
+S-expressions are a notation for tree-structured data, invented for and popularized by the programming language Lisp, which uses them for source code as well as data.
+#+REVEAL_HTML: <img src="http://upload.wikimedia.org/wikipedia/en/e/e3/Corrected_S-expression_tree_2.png"  height="242" width="242">
+
 #+BEGIN_SRC clojure
-(a 1 2)
-#+END_SRC  
+(* 2 (+ 3 4))
+#+END_SRC   
+
 With S-expressions, code and data share the same representation.
+** M-expressions
+S-expressions are an accident of History. M-expressions were intented to be the user syntax. S-expressions were intended to be an intermediate language.
+#+BEGIN_QUOTE
+The initial implementation of Lisp was expected to be a very long process, as compilers at the time were expected to take years to write. Implementation began with hand-compiling particular functions while the M-expression sublanguage was still tentative.
+#+END_QUOTE
+Hand-compiling the function eval is a very easy task, and a community of S-expression Lisp programmers quickly developed. M-expressions fell into neglect, and were never implemented.
+** Context-free grammar (ALGOL-derived syntax)
+Most modern programming languages (C, Java, Ruby, Perl)  are designed with context-free grammars. They are often called C-like languages, or ALGOL-family languages. 
+#+BEGIN_QUOTE
+ALGOL 68 was defined using a two-level grammar formalism invented by Adriaan van Wijngaarden and which bears his name. Van Wijngaarden grammars use a context-free grammar to generate an infinite set of productions that will recognize a particular ALGOL 68 program. — Wikipedia
+#+END_QUOTE
 ** Lisp takes off
 LISP became a common language for artificial intelligence (AI) programming, partly owing to the confluence of LISP and AI work at MIT and partly because AI programs capable of "learning" could be written in LISP as self-modifying programs. Since then, it has expanded in a family of dialects, regularly reincarnating in new shape and form but always retaining the same core semantics.
 ** The importance of Lisp in the industry
@@ -67,8 +114,20 @@ Contributions to programming as we know it today. A long list of ideas that orig
 - self-hosting compilers
 - interactive environment
 
+** Syntactic abstraction
+The argument making the case for Lisp languages is that of extensibility. No special power to the language designers over its users. This is a property of homoiconic languages. Traditionally, the most defining feature of Lisp.  
+** Enlightenment
+#+BEGIN_QUOTE
+Lisp is worth learning for the profound enlightenment experience you will have when you finally get it; that experience will make you a better programmer for the rest of your days, even if you never actually use Lisp itself a lot. — Eric Raymond
+#+END_QUOTE
+#+BEGIN_QUOTE
+90% of what you learn while studying your first Lisp will carry over to your next. — Psyllo, Stack Overflow
+#+END_QUOTE
+* Part II: Clojure
 ** Clojure is a Lisp
+#+BEGIN_QUOTE
 Clojure is pronounced exactly like closure, where the s/j has the zh sound as in azure, pleasure etc. The name was chosen to be unique. I wanted to involve c (c#), l (lisp) and j (java). Once I came up with Clojure, given the pun on closure, the available domains and vast emptiness of the googlespace, it was an easy decision. — Rich Hickey
+#+END_QUOTE
 ** Closure 
 #+BEGIN_SRC javascript
 (function() {
@@ -101,19 +160,10 @@ Whereas an object-oriented mindset will foster the approach of defining an appli
 ** Clojure's motivation
 Clojure was born out of frustration provoked in large part by the complexities of concurrent programming, complicated by the weaknesses of object-oriented programming in facilitating it. 
 ** Simple made easy
+Something is simple if it is singular: it does one thing, it is made of one thing, etc. Something is easy if it is close at hand, i.e. familiar. Simplicity is objective; easiness is subjective and can be complex. 
+
 [[http://www.infoq.com/presentations/Simple-Made-Easy][Infoq video]]
-** Enlightenment
-#+BEGIN_QUOTE
-Lisp is worth learning for the profound enlightenment experience you will have when you finally get it; that experience will make you a better programmer for the rest of your days, even if you never actually use Lisp itself a lot." — Eric Raymond
-#+END_QUOTE
-#+BEGIN_QUOTE
-90% of what you learn while studying your first Lisp will carry over to your next.
-#+END_QUOTE
-* Part II: Data oriented programming
-** Syntactic abstraction
-The argument making the case for Lisp languages is that of extensibility. No special power to the language designers over its users.
-** Homoiconicity
-Traditionally, the most defining feature of Lisp. This is a property of homoiconic languages. 
+
 ** Clojure’s characteristics
 In Clojure: Data -> Functions -> Macros.
 ** Embrace the data
@@ -122,20 +172,29 @@ In Clojure: Data -> Functions -> Macros.
 - Reader syntax for maps, vectors, and sets
 - Concurrency primitives to work with data on multiple cores
 ** Stories
-With all the potential of a modern Lisp, a perfect storm is brewing for a wave of innovation.
-Clojure has strong stories for: Big data, interactive art (games, music, visuals), web development. 
-** Web development
-Rethink browser client development: Clojurescript, core.async and Om.
+With the potentials of a modern Lisp and a growing community of smart users, a perfect storm is brewing for a wave of innovation.
+Clojure has strong stories for: 
+- Big data 
+- Interactive art (games, music, visuals)
+- Web development
+* Part III: Functional development in the browser
+Rethinking web development with Clojurescript, core.async and Om.
 ** A DOM of Doom
 #+BEGIN_QUOTE
 The browser is a vast source of incompatibility, pain and misery. — Douglas Crockford
 #+END_QUOTE
-[[https://www.youtube.com/watch?v%3DY2Y0U-2qJMs][An Inconvenient API - The Theory of the DOM]] by Douglas Crockford
+
+#+REVEAL_HTML: <iframe width="420" height="315" src="http://www.youtube.com/embed/Y2Y0U-2qJMs" frameborder="0" allowfullscreen></iframe>
+
 #+BEGIN_QUOTE
 Basically, bugs don’t get fixed in the web. — Douglas Crockford
 #+END_QUOTE
-* Part III: Clojurescript, core.async and Om
+** Cross-platform libraries and frameworks
 #+BEGIN_QUOTE
-“There is no such thing as philosophy-free science; there is only science whose philosophical baggage is taken on board without examination.
-—Daniel Dennett, Darwin's Dangerous Idea, 1995”
+Why are there so many of them? Because there’s a real need. The APIs provided by the browsers are inadequate for doing applications. But Javascript is such a powerful language that it is easily remedied. That’s one reason. Second, they are fun to make, creating little communities of interest around their work. — Douglas Crockford
 #+END_QUOTE
+** React
+#+BEGIN_QUOTE
+The framework cannot know to separate concerns for you. A React component is a highly cohesive building block for UIs loosely coupled with other components. — Pete Hunt
+#+END_QUOTE
+Javacript rendering library. Conceptually re-renders on every change. No templating language. Virtual DOM. Diffs for optimization.
