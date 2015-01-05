@@ -185,16 +185,31 @@ Something is simple if it is singular: it does one thing, it is made of one thin
 ** Clojure’s characteristics
 In Clojure: Data -> Functions -> Macros.
 ** Embrace the data
+*** Typical roundtrip scenario
+
+|            | DOP  | OOP    |
+|------------+------+--------|
+| database   | data | data   |
+| wire       | data | data   |
+| server     | data | object |
+| wire       | data | data   |
+| client app | data | object |
+| browser    | data | data   |
+*** A closer look
+
+|            | DOP                          | OOP                   |
+|------------+------------------------------+-----------------------|
+| database   | {:name "Bob" :age 24}        | {:name "Bob" :age 24} |
+| wire       | {:name "Bob" :age 24}        | {:name "Bob" :age 24} |
+| server     | {:name "Bob" :age 24}        | ORM / ActiveRecord    |
+| wire       | {:name "Bob" :age 24}        | {:name "Bob" :age 24} |
+| client app | (vals {:name "Bob" :age 24}) | Person.getName();     |
+| browser    | "Bob"                        | "Bob"                 |
+*** Values and change
 - Persistent data structure
 - Immutability
 - Reader syntax for maps, vectors, and sets
 - Concurrency primitives to work with data on multiple cores
-** Stories
-With the potentials of a modern Lisp and a growing community of smart users, a perfect storm is brewing for a wave of innovation.
-Clojure has strong stories for: 
-- Big data 
-- Interactive art (games, music, visuals)
-- Web development
 ** Concurrency
 Two types of concurrency:
 
@@ -207,7 +222,7 @@ Two types of concurrency:
 #+REVEAL: split
 Which does Clojure support?
 
-** Shared Memory
+*** Shared Memory
 Clojure does not replace the Java thread system, rather it works with it. 
 #+ATTR_REVEAL: :frag roll-in
 The software transactional memory system (STM) supports sharing changing state between threads in a synchronous and coordinated manner. 
@@ -217,13 +232,13 @@ The agent system supports sharing changing state between threads in an asynchron
 The atoms system supports sharing changing state between threads in a synchronous and independent manner. 
 #+ATTR_REVEAL: :frag roll-in
 The dynamic var system supports isolating changing state within threads.
-** Message passing
+*** Message passing
 Communicating Sequential Processes (CSP) is a formal language for describing patterns of interaction in concurrent systems.
 #+BEGIN_QUOTE
 One of the most successful models for providing high-level linguistic support for concurrency comes from Hoare's Communicating Sequential Processes, or CSP. 
 #+END_QUOTE
 Implemented as a library in Clojure(script).
-** CSP vs Actor model
+*** CSP vs Actor model
 The Actor Model and CSP diverge in their semantics of message passing.
 #+REVEAL: split
 #+REVEAL_HTML: <img src=http://arild.github.io/csp-presentation/images/csp_illustration1.png>
@@ -233,32 +248,15 @@ The Actor Model and CSP diverge in their semantics of message passing.
 #+REVEAL_HTML: <img src=http://arild.github.io/csp-presentation/images/actor_illustration1.png>
 - Point-to-point communication
 - No anonymity
+** Stories
+With the potentials of a modern Lisp and a growing community of smart users, a perfect storm is brewing for a wave of innovation.
+Clojure has strong stories for: 
+- Big data 
+- Interactive art (games, music, visuals)
+- Web development
+
 * Part III: Functional development in the browser
 Rethinking web development with Clojurescript, core.async and Om.
-** DOP vs OOP
-
-*** Typical roundtrip scenario
-
-|            | DOP  | OOP    |
-|------------+------+--------|
-| database   | data | data   |
-| wire       | data | data   |
-| server     | data | object |
-| wire       | data | data   |
-| client app | data | object |
-| browser    | data | data   |
-
-*** A closer look
-
-|            | DOP                          | OOP                   |
-|------------+------------------------------+-----------------------|
-| database   | {:name "Bob" :age 24}        | {:name "Bob" :age 24} |
-| wire       | {:name "Bob" :age 24}        | {:name "Bob" :age 24} |
-| server     | {:name "Bob" :age 24}        | ORM / ActiveRecord    |
-| wire       | {:name "Bob" :age 24}        | {:name "Bob" :age 24} |
-| client app | (vals {:name "Bob" :age 24}) | Person.getName();     |
-| browser    | "Bob"                        | "Bob"                 |
-
 ** A DOM of Doom
 #+BEGIN_QUOTE
 The browser is a vast source of incompatibility, pain and misery. — Douglas Crockford

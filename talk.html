@@ -440,152 +440,8 @@ In Clojure: Data -&gt; Functions -&gt; Macros.
 <section id="sec-2-9" >
 
 <h3>Embrace the data</h3>
-<ul class="org-ul">
-<li>Persistent data structure
-</li>
-<li>Immutability
-</li>
-<li>Reader syntax for maps, vectors, and sets
-</li>
-<li>Concurrency primitives to work with data on multiple cores
-</li>
-</ul>
 </section>
-<section id="sec-2-10" >
-
-<h3>Stories</h3>
-<p>
-With the potentials of a modern Lisp and a growing community of smart users, a perfect storm is brewing for a wave of innovation.
-Clojure has strong stories for: 
-</p>
-<ul class="org-ul">
-<li>Big data 
-</li>
-<li>Interactive art (games, music, visuals)
-</li>
-<li>Web development
-</li>
-</ul>
-</section>
-<section id="sec-2-11" >
-
-<h3>Concurrency</h3>
-<p>
-Two types of concurrency:
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-
-<col  class="left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="left">Shared memory</th>
-<th scope="col" class="left">Message passing</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="left">Threads</td>
-<td class="left">Processes</td>
-</tr>
-
-<tr>
-<td class="left">Locks</td>
-<td class="left">Messages</td>
-</tr>
-
-<tr>
-<td class="left">Mutexes</td>
-<td class="left">No shared data</td>
-</tr>
-</tbody>
-</table>
-
-</section>
-<section>
-<p>
-Which does Clojure support?
-</p>
-
-</section>
-<section id="sec-2-12" >
-
-<h3>Shared Memory</h3>
-<p>
-Clojure does not replace the Java thread system, rather it works with it. 
-</p>
-<p class="fragment roll-in">
-The software transactional memory system (STM) supports sharing changing state between threads in a synchronous and coordinated manner. 
-</p>
-<p class="fragment roll-in">
-The agent system supports sharing changing state between threads in an asynchronous and independent manner. 
-</p>
-<p class="fragment roll-in">
-The atoms system supports sharing changing state between threads in a synchronous and independent manner. 
-</p>
-<p class="fragment roll-in">
-The dynamic var system supports isolating changing state within threads.
-</p>
-</section>
-<section id="sec-2-13" >
-
-<h3>Message passing</h3>
-<p>
-Communicating Sequential Processes (CSP) is a formal language for describing patterns of interaction in concurrent systems.
-</p>
-<blockquote>
-<p>
-One of the most successful models for providing high-level linguistic support for concurrency comes from Hoare's Communicating Sequential Processes, or CSP. 
-</p>
-</blockquote>
-<p>
-Implemented as a library in Clojure(script).
-</p>
-</section>
-<section id="sec-2-14" >
-
-<h3>CSP vs Actor model</h3>
-<p>
-The Actor Model and CSP diverge in their semantics of message passing.
-</p>
-</section>
-<section>
-<img src=http://arild.github.io/csp-presentation/images/csp_illustration1.png>
-<ul class="org-ul">
-<li>Communication through channels
-</li>
-<li>Processes are "anonymous"
-</li>
-</ul>
-</section>
-<section>
-<img src=http://arild.github.io/csp-presentation/images/actor_illustration1.png>
-<ul class="org-ul">
-<li>Point-to-point communication
-</li>
-<li>No anonymity
-</li>
-</ul>
-</section>
-</section>
-<section>
-<section id="sec-3" >
-
-<h2>Part III: Functional development in the browser</h2>
-<p>
-Rethinking web development with Clojurescript, core.async and Om.
-</p>
-</section>
-<section id="sec-3-1" >
-
-<h3>DOP vs OOP</h3>
-</section>
-<section id="sec-3-1-1" >
+<section id="sec-2-9-1" >
 
 <h4>Typical roundtrip scenario</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -643,9 +499,8 @@ Rethinking web development with Clojurescript, core.async and Om.
 </tr>
 </tbody>
 </table>
-
 </section>
-<section id="sec-3-1-2" >
+<section id="sec-2-9-2" >
 
 <h4>A closer look</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -703,9 +558,153 @@ Rethinking web development with Clojurescript, core.async and Om.
 </tr>
 </tbody>
 </table>
+</section>
+<section id="sec-2-9-3" >
+
+<h4>Values and change</h4>
+<ul class="org-ul">
+<li>Persistent data structure
+</li>
+<li>Immutability
+</li>
+<li>Reader syntax for maps, vectors, and sets
+</li>
+<li>Concurrency primitives to work with data on multiple cores
+</li>
+</ul>
+</section>
+<section id="sec-2-10" >
+
+<h3>Concurrency</h3>
+<p>
+Two types of concurrency:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Shared memory</th>
+<th scope="col" class="left">Message passing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Threads</td>
+<td class="left">Processes</td>
+</tr>
+
+<tr>
+<td class="left">Locks</td>
+<td class="left">Messages</td>
+</tr>
+
+<tr>
+<td class="left">Mutexes</td>
+<td class="left">No shared data</td>
+</tr>
+</tbody>
+</table>
 
 </section>
-<section id="sec-3-2" >
+<section>
+<p>
+Which does Clojure support?
+</p>
+
+</section>
+<section id="sec-2-10-1" >
+
+<h4>Shared Memory</h4>
+<p>
+Clojure does not replace the Java thread system, rather it works with it. 
+</p>
+<p class="fragment roll-in">
+The software transactional memory system (STM) supports sharing changing state between threads in a synchronous and coordinated manner. 
+</p>
+<p class="fragment roll-in">
+The agent system supports sharing changing state between threads in an asynchronous and independent manner. 
+</p>
+<p class="fragment roll-in">
+The atoms system supports sharing changing state between threads in a synchronous and independent manner. 
+</p>
+<p class="fragment roll-in">
+The dynamic var system supports isolating changing state within threads.
+</p>
+</section>
+<section id="sec-2-10-2" >
+
+<h4>Message passing</h4>
+<p>
+Communicating Sequential Processes (CSP) is a formal language for describing patterns of interaction in concurrent systems.
+</p>
+<blockquote>
+<p>
+One of the most successful models for providing high-level linguistic support for concurrency comes from Hoare's Communicating Sequential Processes, or CSP. 
+</p>
+</blockquote>
+<p>
+Implemented as a library in Clojure(script).
+</p>
+</section>
+<section id="sec-2-10-3" >
+
+<h4>CSP vs Actor model</h4>
+<p>
+The Actor Model and CSP diverge in their semantics of message passing.
+</p>
+</section>
+<section>
+<img src=http://arild.github.io/csp-presentation/images/csp_illustration1.png>
+<ul class="org-ul">
+<li>Communication through channels
+</li>
+<li>Processes are "anonymous"
+</li>
+</ul>
+</section>
+<section>
+<img src=http://arild.github.io/csp-presentation/images/actor_illustration1.png>
+<ul class="org-ul">
+<li>Point-to-point communication
+</li>
+<li>No anonymity
+</li>
+</ul>
+</section>
+<section id="sec-2-11" >
+
+<h3>Stories</h3>
+<p>
+With the potentials of a modern Lisp and a growing community of smart users, a perfect storm is brewing for a wave of innovation.
+Clojure has strong stories for: 
+</p>
+<ul class="org-ul">
+<li>Big data 
+</li>
+<li>Interactive art (games, music, visuals)
+</li>
+<li>Web development
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-3" >
+
+<h2>Part III: Functional development in the browser</h2>
+<p>
+Rethinking web development with Clojurescript, core.async and Om.
+</p>
+</section>
+<section id="sec-3-1" >
 
 <h3>A DOM of Doom</h3>
 <blockquote>
@@ -722,7 +721,7 @@ Basically, bugs don’t get fixed in the web. — Douglas Crockford
 </p>
 </blockquote>
 </section>
-<section id="sec-3-3" >
+<section id="sec-3-2" >
 
 <h3>Cross-platform libraries and frameworks</h3>
 <blockquote>
@@ -731,7 +730,7 @@ Why are there so many of them? Because there’s a real need. The APIs provided 
 </p>
 </blockquote>
 </section>
-<section id="sec-3-4" >
+<section id="sec-3-3" >
 
 <h3>React</h3>
 <blockquote>
