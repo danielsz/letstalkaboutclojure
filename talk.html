@@ -164,18 +164,21 @@ That’s all it is. And it’s testament to the expressiveness of system F, John
 </section>
 <section>
 
+<blockquote>
+<p>
+The fact that everything can be explained in terms of translation to that small language, is an incredible sanity check. It means if you invent some wild feature in the source language, if you can’t translate it in the intermediate language, well, maybe it’s too wild! It’s a sanity check on the language design.
+</p>
+</blockquote>
+
+</section>
+<section>
+
 <p>
 Dumping out GHC’s intermediate structures:
 </p>
 <blockquote>
 <p>
 ghc -ddump-simpl
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-The fact that everything can be explained in terms of translation to that small language, is an incredible sanity check. It means if you invent some wild feature in the source language, if you can’t translate it in the intermediate language, well, maybe it’s too wild! It’s a sanity check on the language design.
 </p>
 </blockquote>
 
@@ -580,6 +583,130 @@ Rethinking web development with Clojurescript, core.async and Om.
 </section>
 <section id="sec-3-1" >
 
+<h3>DOP vs OOP</h3>
+</section>
+<section id="sec-3-1-1" >
+
+<h4>Typical roundtrip scenario</h4>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left">DOP</th>
+<th scope="col" class="left">OOP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">database</td>
+<td class="left">data</td>
+<td class="left">data</td>
+</tr>
+
+<tr>
+<td class="left">wire</td>
+<td class="left">data</td>
+<td class="left">data</td>
+</tr>
+
+<tr>
+<td class="left">server</td>
+<td class="left">data</td>
+<td class="left">object</td>
+</tr>
+
+<tr>
+<td class="left">wire</td>
+<td class="left">data</td>
+<td class="left">data</td>
+</tr>
+
+<tr>
+<td class="left">client app</td>
+<td class="left">data</td>
+<td class="left">object</td>
+</tr>
+
+<tr>
+<td class="left">browser</td>
+<td class="left">data</td>
+<td class="left">data</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="sec-3-1-2" >
+
+<h4>A closer look</h4>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left">DOP</th>
+<th scope="col" class="left">OOP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">database</td>
+<td class="left">{:name "Bob" :age 24}</td>
+<td class="left">{:name "Bob" :age 24}</td>
+</tr>
+
+<tr>
+<td class="left">wire</td>
+<td class="left">{:name "Bob" :age 24}</td>
+<td class="left">{:name "Bob" :age 24}</td>
+</tr>
+
+<tr>
+<td class="left">server</td>
+<td class="left">{:name "Bob" :age 24}</td>
+<td class="left">ORM / ActiveRecord</td>
+</tr>
+
+<tr>
+<td class="left">wire</td>
+<td class="left">{:name "Bob" :age 24}</td>
+<td class="left">{:name "Bob" :age 24}</td>
+</tr>
+
+<tr>
+<td class="left">client app</td>
+<td class="left">(vals {:name "Bob" :age 24})</td>
+<td class="left">Person.getName();</td>
+</tr>
+
+<tr>
+<td class="left">browser</td>
+<td class="left">"Bob"</td>
+<td class="left">"Bob"</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="sec-3-2" >
+
 <h3>A DOM of Doom</h3>
 <blockquote>
 <p>
@@ -595,7 +722,7 @@ Basically, bugs don’t get fixed in the web. — Douglas Crockford
 </p>
 </blockquote>
 </section>
-<section id="sec-3-2" >
+<section id="sec-3-3" >
 
 <h3>Cross-platform libraries and frameworks</h3>
 <blockquote>
@@ -604,7 +731,7 @@ Why are there so many of them? Because there’s a real need. The APIs provided 
 </p>
 </blockquote>
 </section>
-<section id="sec-3-3" >
+<section id="sec-3-4" >
 
 <h3>React</h3>
 <blockquote>

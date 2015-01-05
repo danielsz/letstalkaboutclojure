@@ -62,13 +62,15 @@ That’s all it is. And it’s testament to the expressiveness of system F, John
 
 #+REVEAL: split
 
+#+BEGIN_QUOTE 
+The fact that everything can be explained in terms of translation to that small language, is an incredible sanity check. It means if you invent some wild feature in the source language, if you can’t translate it in the intermediate language, well, maybe it’s too wild! It’s a sanity check on the language design.
+#+END_QUOTE
+
+#+REVEAL: split
+
 Dumping out GHC’s intermediate structures:
 #+BEGIN_QUOTE shell
 ghc -ddump-simpl
-#+END_QUOTE
-
-#+BEGIN_QUOTE 
-The fact that everything can be explained in terms of translation to that small language, is an incredible sanity check. It means if you invent some wild feature in the source language, if you can’t translate it in the intermediate language, well, maybe it’s too wild! It’s a sanity check on the language design.
 #+END_QUOTE
 
 ** Bill Burdick’s entertaining experiments
@@ -233,6 +235,30 @@ The Actor Model and CSP diverge in their semantics of message passing.
 - No anonymity
 * Part III: Functional development in the browser
 Rethinking web development with Clojurescript, core.async and Om.
+** DOP vs OOP
+
+*** Typical roundtrip scenario
+
+|            | DOP  | OOP    |
+|------------+------+--------|
+| database   | data | data   |
+| wire       | data | data   |
+| server     | data | object |
+| wire       | data | data   |
+| client app | data | object |
+| browser    | data | data   |
+
+*** A closer look
+
+|            | DOP                          | OOP                   |
+|------------+------------------------------+-----------------------|
+| database   | {:name "Bob" :age 24}        | {:name "Bob" :age 24} |
+| wire       | {:name "Bob" :age 24}        | {:name "Bob" :age 24} |
+| server     | {:name "Bob" :age 24}        | ORM / ActiveRecord    |
+| wire       | {:name "Bob" :age 24}        | {:name "Bob" :age 24} |
+| client app | (vals {:name "Bob" :age 24}) | Person.getName();     |
+| browser    | "Bob"                        | "Bob"                 |
+
 ** A DOM of Doom
 #+BEGIN_QUOTE
 The browser is a vast source of incompatibility, pain and misery. — Douglas Crockford
