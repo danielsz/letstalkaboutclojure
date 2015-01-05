@@ -26,16 +26,27 @@ Question: When we program, do we use system 1 or system 2?
 #+ATTR_REVEAL: :frag roll-in
 We use both. When we learn or face a difficult part of the program, we use system 2, but most of the time we’ll try to maximize system 1 and proceed fast to use what we’ve learnt, what we already know.
 ** Regularity
-Learnability of a system (programming language) depends on the regularity it provides. When we learn a language, We develop intuitions around it. We are able to predict that the runtime is going to do y if we write x. 
-** How do you infuse regularity to a programming language?
-By making it adhere to well-defined rules.
-#+BEGIN_QUOTE
-Computation is a process following a well-defined model expressed as, for example, an algorithm, or a protocol. — Wikipedia
-#+END_QUOTE
-Models of computation are extremely useful to inventors/designers of high-level programming languages.
+Learnability of a system (programming language) depends on the regularity it provides. When we learn a language, we develop intuitions around it. We are able to predict that the runtime is going to do y if we write x. 
+#+REVEAL: split
 #+BEGIN_QUOTE
 Civilization advances by extending the number of important operations which we can perform without thinking about them" — Alfred North Whitehead
 #+END_QUOTE
+** How do you infuse regularity to a programming language?
+#+ATTR_REVEAL: :frag roll-in
+By making it adhere to well-defined rules.
+
+#+BEGIN_NOTES
+Everything is an object.
+What about primitives, references, fields, local variables, methods...?
+Everything is a file (descriptor).
+#+END_NOTES
+
+#+REVEAL: split
+#+BEGIN_QUOTE
+Computation is a process following a well-defined model expressed as, for example, an algorithm or a protocol.
+#+END_QUOTE
+#+ATTR_REVEAL: :frag roll-in
+Models of computation are extremely useful to inventors/designers of high-level programming languages.
 ** Models of computation, some examples
 Turing Machines, Cellular Automata, Finite State Machines, Stack Machines, Graph Automata, Lambda Calculus, Fractran, Tiling Systems, Chemical Reaction Systems, Hopfield Networks, Boltzmann Machines, Neural Networks, Circuits, Graphical Models, Boolean Algebra, String Rewriting Systems, Semigroups, Quantum Waves, Diophantine Equations, Tag Systems, The Actor Model, etc.
 ** Models of computation
@@ -58,19 +69,18 @@ ghc-core: A convenient command line wrapper for GHC that displays GHC's optimise
 #+BEGIN_QUOTE
 That’s all it is. And it’s testament to the expressiveness of system F, John C. Reynold’s work. — Simon Peyton Jone
 #+END_QUOTE
+
+Dumping out GHC’s intermediate structures:
+#+BEGIN_QUOTE shell
+ghc -ddump-simpl
+#+END_QUOTE
+
 #+END_NOTES
 
 #+REVEAL: split
 
 #+BEGIN_QUOTE 
 The fact that everything can be explained in terms of translation to that small language, is an incredible sanity check. It means if you invent some wild feature in the source language, if you can’t translate it in the intermediate language, well, maybe it’s too wild! It’s a sanity check on the language design.
-#+END_QUOTE
-
-#+REVEAL: split
-
-Dumping out GHC’s intermediate structures:
-#+BEGIN_QUOTE shell
-ghc -ddump-simpl
 #+END_QUOTE
 
 ** Bill Burdick’s entertaining experiments
@@ -81,14 +91,21 @@ ghc -ddump-simpl
 ** Differences between Lisp and Lambda Calculus
 In Lisp, expressions are evaluated. In Lambda Calculus, expressions are reduced.
 
+
 - α-conversion (changing bound variables)
 - β-reduction (function application)
 - η-conversion (expresses the idea of extensionality)
 
-Lisp has non-functional data, like atoms and numbers and such, so this would count as untyped lambda calculus extended with constants.
+#+BEGIN_NOTES
 
 [[http://kazimirmajorinc.blogspot.co.il/2011/01/some-differences-between-lambda.html][Some differences between lambda-calculus and Lisp]]
 [[http://stackoverflow.com/questions/2750421/what-type-of-lambda-calculus-would-lisp-loosely-be-an-example-of][What type of lambda calculus would Lisp loosely be an example of?]]
+
+Lisp has non-functional data, like atoms and numbers and such, so this would count as untyped lambda calculus extended with constants.
+In summary, Lisp corresponds to an untyped, call-by-value lambda calculus extended with constants.
+#+END_NOTES
+
+
 ** What did McCarthy discover?
 #+BEGIN_QUOTE
 If you try to answer the question, what is the smallest number of operators you need in order to write an interpreter for a language in itself, Lisp is what you get. In other words, Lisp is not something John McCarthy invented, so much as something he discovered. – Paul Graham
@@ -98,11 +115,6 @@ If you have seven primitive operators (quote, atom, eq, car, cdr, cons, and cond
 
 [[https://leanpub.com/readevalprintlove002][A primordial Lisp described in detail.]]
 
-** Syntax
-#+BEGIN_QUOTE
-ALGOL 68 was defined using a two-level grammar formalism invented by Adriaan van Wijngaarden and which bears his name. Van Wijngaarden grammars use a context-free grammar to generate an infinite set of productions that will recognize a particular ALGOL 68 program.
-#+END_QUOTE
-Most modern languages derive their syntax from C, and C derives its syntax from Algol. So they are often called C-like languages, or ALGOL-family languages.
 ** S-expressions
 S-expressions are a notation for tree-structured data, invented for and popularized by the programming language Lisp, which uses them for source code as well as data.
 #+REVEAL_HTML: <img src="http://upload.wikimedia.org/wikipedia/en/e/e3/Corrected_S-expression_tree_2.png"  height="242" width="242">
@@ -206,8 +218,14 @@ In Clojure: Data -> Functions -> Macros.
 | client app | (vals {:name "Bob" :age 24}) | Person.getName();     |
 | browser    | "Bob"                        | "Bob"                 |
 *** Values and change
-- Persistent data structure
-- Immutability
+- A value is something that doesn't change: the string "Bob", the number 24. 
+- State is a value at a certain time: Bob is 24 years old.
+- Identity is the succession of states associated with an entity: Bob is today 24 years old, next month he will be 25 years old.
+
+OO typically unifies identity and state. In Clojure, logical identity is enforced via state management (atomic references to values). 
+*** Immutability
+- Persistent data structures
+
 - Reader syntax for maps, vectors, and sets
 - Concurrency primitives to work with data on multiple cores
 ** Concurrency

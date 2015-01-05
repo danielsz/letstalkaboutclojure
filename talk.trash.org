@@ -1,3 +1,8 @@
+** Syntax
+#+BEGIN_QUOTE
+ALGOL 68 was defined using a two-level grammar formalism invented by Adriaan van Wijngaarden and which bears his name. Van Wijngaarden grammars use a context-free grammar to generate an infinite set of productions that will recognize a particular ALGOL 68 program.
+#+END_QUOTE
+Most modern languages derive their syntax from C, and C derives its syntax from Algol. So they are often called C-like languages, or ALGOL-family languages.
 #+BEGIN_QUOTE
 “There is no such thing as philosophy-free science; there is only science whose philosophical baggage is taken on board without examination.
 —Daniel Dennett, Darwin's Dangerous Idea, 1995”

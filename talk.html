@@ -87,28 +87,41 @@ We use both. When we learn or face a difficult part of the program, we use syste
 
 <h3>Regularity</h3>
 <p>
-Learnability of a system (programming language) depends on the regularity it provides. When we learn a language, We develop intuitions around it. We are able to predict that the runtime is going to do y if we write x. 
+Learnability of a system (programming language) depends on the regularity it provides. When we learn a language, we develop intuitions around it. We are able to predict that the runtime is going to do y if we write x. 
 </p>
 </section>
-<section id="sec-1-7" >
-
-<h3>How do you infuse regularity to a programming language?</h3>
-<p>
-By making it adhere to well-defined rules.
-</p>
-<blockquote>
-<p>
-Computation is a process following a well-defined model expressed as, for example, an algorithm, or a protocol. — Wikipedia
-</p>
-</blockquote>
-<p>
-Models of computation are extremely useful to inventors/designers of high-level programming languages.
-</p>
+<section>
 <blockquote>
 <p>
 Civilization advances by extending the number of important operations which we can perform without thinking about them" — Alfred North Whitehead
 </p>
 </blockquote>
+</section>
+<section id="sec-1-7" >
+
+<h3>How do you infuse regularity to a programming language?</h3>
+<p class="fragment roll-in">
+By making it adhere to well-defined rules.
+</p>
+
+<aside class="notes">
+<p>
+Everything is an object.
+What about primitives, references, fields, local variables, methods&#x2026;?
+Everything is a file (descriptor).
+</p>
+</aside>
+
+</section>
+<section>
+<blockquote>
+<p>
+Computation is a process following a well-defined model expressed as, for example, an algorithm or a protocol.
+</p>
+</blockquote>
+<p class="fragment roll-in">
+Models of computation are extremely useful to inventors/designers of high-level programming languages.
+</p>
 </section>
 <section id="sec-1-8" >
 
@@ -159,6 +172,15 @@ ghc-core: A convenient command line wrapper for GHC that displays GHC's optimise
 That’s all it is. And it’s testament to the expressiveness of system F, John C. Reynold’s work. — Simon Peyton Jone
 </p>
 </blockquote>
+
+<p>
+Dumping out GHC’s intermediate structures:
+</p>
+<blockquote>
+<p>
+ghc -ddump-simpl
+</p>
+</blockquote>
 </aside>
 
 </section>
@@ -167,18 +189,6 @@ That’s all it is. And it’s testament to the expressiveness of system F, John
 <blockquote>
 <p>
 The fact that everything can be explained in terms of translation to that small language, is an incredible sanity check. It means if you invent some wild feature in the source language, if you can’t translate it in the intermediate language, well, maybe it’s too wild! It’s a sanity check on the language design.
-</p>
-</blockquote>
-
-</section>
-<section>
-
-<p>
-Dumping out GHC’s intermediate structures:
-</p>
-<blockquote>
-<p>
-ghc -ddump-simpl
 </p>
 </blockquote>
 
@@ -202,6 +212,7 @@ ghc -ddump-simpl
 In Lisp, expressions are evaluated. In Lambda Calculus, expressions are reduced.
 </p>
 
+
 <ul class="org-ul">
 <li>α-conversion (changing bound variables)
 </li>
@@ -211,14 +222,19 @@ In Lisp, expressions are evaluated. In Lambda Calculus, expressions are reduced.
 </li>
 </ul>
 
-<p>
-Lisp has non-functional data, like atoms and numbers and such, so this would count as untyped lambda calculus extended with constants.
-</p>
-
+<aside class="notes">
 <p>
 <a href="http://kazimirmajorinc.blogspot.co.il/2011/01/some-differences-between-lambda.html">Some differences between lambda-calculus and Lisp</a>
 <a href="http://stackoverflow.com/questions/2750421/what-type-of-lambda-calculus-would-lisp-loosely-be-an-example-of">What type of lambda calculus would Lisp loosely be an example of?</a>
 </p>
+
+<p>
+Lisp has non-functional data, like atoms and numbers and such, so this would count as untyped lambda calculus extended with constants.
+In summary, Lisp corresponds to an untyped, call-by-value lambda calculus extended with constants.
+</p>
+</aside>
+
+
 </section>
 <section id="sec-1-14" >
 
@@ -243,18 +259,6 @@ If you have seven primitive operators (quote, atom, eq, car, cdr, cons, and cond
 </section>
 <section id="sec-1-16" >
 
-<h3>Syntax</h3>
-<blockquote>
-<p>
-ALGOL 68 was defined using a two-level grammar formalism invented by Adriaan van Wijngaarden and which bears his name. Van Wijngaarden grammars use a context-free grammar to generate an infinite set of productions that will recognize a particular ALGOL 68 program.
-</p>
-</blockquote>
-<p>
-Most modern languages derive their syntax from C, and C derives its syntax from Algol. So they are often called C-like languages, or ALGOL-family languages.
-</p>
-</section>
-<section id="sec-1-17" >
-
 <h3>S-expressions</h3>
 <p>
 S-expressions are a notation for tree-structured data, invented for and popularized by the programming language Lisp, which uses them for source code as well as data.
@@ -271,7 +275,7 @@ S-expressions are a notation for tree-structured data, invented for and populari
 With S-expressions, code and data share the same representation.
 </p>
 </section>
-<section id="sec-1-18" >
+<section id="sec-1-17" >
 
 <h3>M-expressions</h3>
 <p>
@@ -286,14 +290,14 @@ The initial implementation of Lisp was expected to be a very long process, as co
 Hand-compiling the function eval is a very easy task, and a community of S-expression Lisp programmers quickly developed. M-expressions fell into neglect, and were never implemented.
 </p>
 </section>
-<section id="sec-1-19" >
+<section id="sec-1-18" >
 
 <h3>Lisp takes off</h3>
 <p>
 LISP became a common language for artificial intelligence (AI) programming, partly owing to the confluence of LISP and AI work at MIT and partly because AI programs capable of "learning" could be written in LISP as self-modifying programs. Since then, it has expanded in a family of dialects, regularly reincarnating in new shape and form but always retaining the same core semantics.
 </p>
 </section>
-<section id="sec-1-20" >
+<section id="sec-1-19" >
 
 <h3>The importance of Lisp in the industry</h3>
 <p>
@@ -320,14 +324,14 @@ Contributions to programming as we know it today. A long list of ideas that orig
 </ul>
 
 </section>
-<section id="sec-1-21" >
+<section id="sec-1-20" >
 
 <h3>Syntactic abstraction</h3>
 <p>
 The argument making the case for Lisp languages is that of extensibility. No special power to the language designers over its users. This is a property of homoiconic languages. Traditionally, the most defining feature of Lisp.  
 </p>
 </section>
-<section id="sec-1-22" >
+<section id="sec-1-21" >
 
 <h3>Enlightenment</h3>
 <blockquote>
@@ -563,10 +567,25 @@ In Clojure: Data -&gt; Functions -&gt; Macros.
 
 <h4>Values and change</h4>
 <ul class="org-ul">
-<li>Persistent data structure
+<li>A value is something that doesn't change: the string "Bob", the number 24. 
 </li>
-<li>Immutability
+<li>State is a value at a certain time: Bob is 24 years old.
 </li>
+<li>Identity is the succession of states associated with an entity: Bob is today 24 years old, next month he will be 25 years old.
+</li>
+</ul>
+
+<p>
+OO typically unifies identity and state. In Clojure, logical identity is enforced via state management (atomic references to values). 
+</p>
+</section>
+<section id="sec-2-9-4" >
+
+<h4>Immutability</h4>
+<ul class="org-ul">
+<li>Persistent data structures
+</li>
+
 <li>Reader syntax for maps, vectors, and sets
 </li>
 <li>Concurrency primitives to work with data on multiple cores
