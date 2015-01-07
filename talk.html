@@ -97,21 +97,44 @@ Civilization advances by extending the number of important operations which we c
 </p>
 </blockquote>
 </section>
+<section>
+<p>
+<a href="https://github.com/Dobiasd/articles/blob/master/programming_language_learning_curves.md">Learning Curves for several programming languages</a>
+</p>
+</section>
 <section id="sec-1-7" >
 
 <h3>How do you infuse regularity to a programming language?</h3>
 <p class="fragment roll-in">
 By making it adhere to well-defined rules.
 </p>
+</section>
+<section id="sec-1-7-1" >
 
+<h4>An over-arching theme:</h4>
+<ul class="org-ul">
+<li>Everything is an object.
+</li>
+<li>Everything is an actor.
+</li>
+<li>Everything is a file (descriptor).
+</li>
+</ul>
 <aside class="notes">
 <p>
-Everything is an object.
 What about primitives, references, fields, local variables, methods&#x2026;?
-Everything is a file (descriptor).
 </p>
 </aside>
+</section>
+<section id="sec-1-7-2" >
 
+<h4>The history of language design</h4>
+<ul class="org-ul">
+<li>Start from the Von Neumann Architecture and add abstraction.
+</li>
+<li>Start from Mathematics and remove abstraction.
+</li>
+</ul>
 </section>
 <section>
 <blockquote>
@@ -136,11 +159,7 @@ Turing Machines, Cellular Automata, Finite State Machines, Stack Machines, Graph
 <ul class="org-ul">
 <li>Lambda Calculus is at the heart of the most highly regarded programming languages: Haskell, ML and Lisp.
 </li>
-
-<li><a href="https://github.com/Dobiasd/articles/blob/master/programming_language_learning_curves.md">Learning Curves for several programming languages</a>
-</li>
 </ul>
-
 </section>
 <section id="sec-1-10" >
 
@@ -209,9 +228,8 @@ The fact that everything can be explained in terms of translation to that small 
 
 <h3>Differences between Lisp and Lambda Calculus</h3>
 <p>
-In Lisp, expressions are evaluated. In Lambda Calculus, expressions are reduced.
+In Lambda Calculus, expressions are reduced. In Lisp, expressions are evaluated.
 </p>
-
 
 <ul class="org-ul">
 <li>α-conversion (changing bound variables)
@@ -438,12 +456,17 @@ Something is simple if it is singular: it does one thing, it is made of one thin
 
 <h3>Clojure’s characteristics</h3>
 <p>
-In Clojure: Data -&gt; Functions -&gt; Macros.
+In Clojure: Data &gt; Functions &gt; Macros.
 </p>
 </section>
 <section id="sec-2-9" >
 
 <h3>Embrace the data</h3>
+<blockquote>
+<p>
+I like to tell people that a big part of what makes Clojure special is its philosophy of lightweight data modeling. — Mark Engelberg
+</p>
+</blockquote>
 </section>
 <section id="sec-2-9-1" >
 
@@ -461,7 +484,7 @@ In Clojure: Data -&gt; Functions -&gt; Macros.
 <thead>
 <tr>
 <th scope="col" class="left">&#xa0;</th>
-<th scope="col" class="left">DOP</th>
+<th scope="col" class="left">LDM</th>
 <th scope="col" class="left">OOP</th>
 </tr>
 </thead>
@@ -520,7 +543,7 @@ In Clojure: Data -&gt; Functions -&gt; Macros.
 <thead>
 <tr>
 <th scope="col" class="left">&#xa0;</th>
-<th scope="col" class="left">DOP</th>
+<th scope="col" class="left">LDM</th>
 <th scope="col" class="left">OOP</th>
 </tr>
 </thead>
@@ -566,29 +589,13 @@ In Clojure: Data -&gt; Functions -&gt; Macros.
 <section id="sec-2-9-3" >
 
 <h4>Values and change</h4>
-<ul class="org-ul">
-<li>A value is something that doesn't change: the string "Bob", the number 24. 
-</li>
-<li>State is a value at a certain time: Bob is 24 years old.
-</li>
-<li>Identity is the succession of states associated with an entity: Bob is today 24 years old, next month he will be 25 years old.
-</li>
-</ul>
-
 <p>
-OO typically unifies identity and state. In Clojure, logical identity is enforced via state management (atomic references to values). 
+OO typically unifies identity and state. In Clojure, logical identity is enforced via state management. 
 </p>
-</section>
-<section id="sec-2-9-4" >
-
-<h4>Immutability</h4>
 <ul class="org-ul">
 <li>Persistent data structures
 </li>
-
-<li>Reader syntax for maps, vectors, and sets
-</li>
-<li>Concurrency primitives to work with data on multiple cores
+<li>Concurrency constructs to work with data on multiple cores
 </li>
 </ul>
 </section>

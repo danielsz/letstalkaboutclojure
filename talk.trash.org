@@ -1,3 +1,10 @@
+- Reader syntax for maps, vectors, and sets
+- A value is something that doesn't change: the string "Bob", the number 24. 
+- State is a value at a certain time: Bob is 24 years old.
+- Identity is the succession of states associated with an entity: Bob is today 24 years old, next month he will be 25 years old
+- A value is something that doesn't change: the string "Bob", the number 24. 
+- State is a value at a certain time: Bob is 24 years old.
+- Identity is the succession of states associated with an entity: Bob is today 24 years old, next month he will be 25 years old
 ** Syntax
 #+BEGIN_QUOTE
 ALGOL 68 was defined using a two-level grammar formalism invented by Adriaan van Wijngaarden and which bears his name. Van Wijngaarden grammars use a context-free grammar to generate an infinite set of productions that will recognize a particular ALGOL 68 program.

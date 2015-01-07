@@ -28,19 +28,24 @@ We use both. When we learn or face a difficult part of the program, we use syste
 ** Regularity
 Learnability of a system (programming language) depends on the regularity it provides. When we learn a language, we develop intuitions around it. We are able to predict that the runtime is going to do y if we write x. 
 #+REVEAL: split
+[[https://github.com/Dobiasd/articles/blob/master/programming_language_learning_curves.md][Learning Curves for several programming languages]]
+#+REVEAL: split
 #+BEGIN_QUOTE
 Civilization advances by extending the number of important operations which we can perform without thinking about them" — Alfred North Whitehead
 #+END_QUOTE
 ** How do you infuse regularity to a programming language?
 #+ATTR_REVEAL: :frag roll-in
 By making it adhere to well-defined rules.
-
+*** An over-arching theme:
+- Everything is an object.
+- Everything is an actor.
+- Everything is a file (descriptor).
 #+BEGIN_NOTES
-Everything is an object.
 What about primitives, references, fields, local variables, methods...?
-Everything is a file (descriptor).
 #+END_NOTES
-
+*** The history of language design
+- Start from the Von Neumann Architecture and add abstraction.
+- Start from Mathematics and remove abstraction.
 #+REVEAL: split
 #+BEGIN_QUOTE
 Computation is a process following a well-defined model expressed as, for example, an algorithm or a protocol.
@@ -51,9 +56,6 @@ Models of computation are extremely useful to inventors/designers of high-level 
 Turing Machines, Cellular Automata, Finite State Machines, Stack Machines, Graph Automata, Lambda Calculus, Fractran, Tiling Systems, Chemical Reaction Systems, Hopfield Networks, Boltzmann Machines, Neural Networks, Circuits, Graphical Models, Boolean Algebra, String Rewriting Systems, Semigroups, Quantum Waves, Diophantine Equations, Tag Systems, The Actor Model, etc.
 ** Models of computation
 - Lambda Calculus is at the heart of the most highly regarded programming languages: Haskell, ML and Lisp.
-
-- [[https://github.com/Dobiasd/articles/blob/master/programming_language_learning_curves.md][Learning Curves for several programming languages]]
-
 ** Lambda Calculus
 Alonzo Church developed a notation for arbitrary functions. His notation is called λ-calculus (“lambda calculus”). Church introduced his formalism to give a functional foundation for Mathematics but in the end mathematicians preferred (axiomatic) set theory. The λ-calculus was re-discovered as a versatile tool in Computer Science by people like McCarthy, Strachey, Landin, and Scott in the 1960s.
 ** Haskell
@@ -89,8 +91,7 @@ The fact that everything can be explained in terms of translation to that small 
 - [[http://tinyconcepts.com/fs.pl/lambda.fsl/doc/tip/evaluator.html][Lambda Calculus compiler and interpreter in Javascript]]
 
 ** Differences between Lisp and Lambda Calculus
-In Lisp, expressions are evaluated. In Lambda Calculus, expressions are reduced.
-
+In Lambda Calculus, expressions are reduced. In Lisp, expressions are evaluated.
 
 - α-conversion (changing bound variables)
 - β-reduction (function application)
@@ -195,11 +196,14 @@ Something is simple if it is singular: it does one thing, it is made of one thin
 [[http://www.infoq.com/presentations/Simple-Made-Easy][Infoq video]]
 
 ** Clojure’s characteristics
-In Clojure: Data -> Functions -> Macros.
+In Clojure: Data > Functions > Macros.
 ** Embrace the data
+#+BEGIN_QUOTE
+I like to tell people that a big part of what makes Clojure special is its philosophy of lightweight data modeling. — Mark Engelberg
+#+END_QUOTE
 *** Typical roundtrip scenario
 
-|            | DOP  | OOP    |
+|            | LDM  | OOP    |
 |------------+------+--------|
 | database   | data | data   |
 | wire       | data | data   |
@@ -209,7 +213,7 @@ In Clojure: Data -> Functions -> Macros.
 | browser    | data | data   |
 *** A closer look
 
-|            | DOP                          | OOP                   |
+|            | LDM                          | OOP                   |
 |------------+------------------------------+-----------------------|
 | database   | {:name "Bob" :age 24}        | {:name "Bob" :age 24} |
 | wire       | {:name "Bob" :age 24}        | {:name "Bob" :age 24} |
@@ -218,16 +222,9 @@ In Clojure: Data -> Functions -> Macros.
 | client app | (vals {:name "Bob" :age 24}) | Person.getName();     |
 | browser    | "Bob"                        | "Bob"                 |
 *** Values and change
-- A value is something that doesn't change: the string "Bob", the number 24. 
-- State is a value at a certain time: Bob is 24 years old.
-- Identity is the succession of states associated with an entity: Bob is today 24 years old, next month he will be 25 years old.
-
-OO typically unifies identity and state. In Clojure, logical identity is enforced via state management (atomic references to values). 
-*** Immutability
+OO typically unifies identity and state. In Clojure, logical identity is enforced via state management. 
 - Persistent data structures
-
-- Reader syntax for maps, vectors, and sets
-- Concurrency primitives to work with data on multiple cores
+- Concurrency constructs to work with data on multiple cores
 ** Concurrency
 Two types of concurrency:
 
