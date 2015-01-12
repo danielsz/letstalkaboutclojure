@@ -85,6 +85,11 @@ ghc -ddump-simpl
 The fact that everything can be explained in terms of translation to that small language, is an incredible sanity check. It means if you invent some wild feature in the source language, if you can’t translate it in the intermediate language, well, maybe it’s too wild! It’s a sanity check on the language design.
 #+END_QUOTE
 
+#+REVEAL: split
+
+#+BEGIN_QUOTE
+Choice of lexical syntax is arbitrary, uninteresting, and quite often distracts from actual substance in comparative language discussion. If there is one central theme is that the design of the core calculus should drive development, not the frontend language. — Stephen Diehl
+#+END_QUOTE
 ** Bill Burdick’s entertaining experiments
 #+REVEAL_HTML: <img src=images/space-invaders.png></img>
 - [[Http://tinyconcepts.com/invaders.html][Space invaders]]
