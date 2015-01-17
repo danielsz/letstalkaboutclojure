@@ -4,7 +4,7 @@
 #+REVEAL_THEME: moon
 #+REVEAL_EXTRA_CSS: css/tables.css
 #+OPTIONS: num:nil toc:nil
-#+Title: Let's talk about Clojure
+#+Title: Let's talk about Clojure / Form Follow Function
 
 * Part I: Introduction
 ** A little quiz for starters
@@ -40,6 +40,7 @@ By making it adhere to well-defined rules.
 - Everything is an object.
 - Everything is an actor.
 - Everything is a file (descriptor).
+- Everything is a function.
 #+BEGIN_NOTES
 What about primitives, references, fields, local variables, methods...?
 #+END_NOTES
@@ -110,7 +111,6 @@ In Lambda Calculus, expressions are reduced. In Lisp, expressions are evaluated.
 Lisp has non-functional data, like atoms and numbers and such, so this would count as untyped lambda calculus extended with constants.
 In summary, Lisp corresponds to an untyped, call-by-value lambda calculus extended with constants.
 #+END_NOTES
-
 
 ** What did McCarthy discover?
 #+BEGIN_QUOTE
