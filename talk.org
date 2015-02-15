@@ -54,7 +54,7 @@ Computation is a process following a well-defined model expressed as, for exampl
 #+ATTR_REVEAL: :frag roll-in
 Models of computation are extremely useful to inventors/designers of high-level programming languages.
 ** Models of computation, some examples
-Turing Machines, Cellular Automata, Finite State Machines, Stack Machines, Graph Automata, Lambda Calculus, Fractran, Tiling Systems, Chemical Reaction Systems, Hopfield Networks, Boltzmann Machines, Neural Networks, Circuits, Graphical Models, Boolean Algebra, String Rewriting Systems, Semigroups, Quantum Waves, Diophantine Equations, Tag Systems, The Actor Model, etc.
+Turing Machines, Cellular Automata, Finite State Machines, Stack Machines, Graph Automata, Lambda Calculus, Fractran, Tiling Systems, Chemical Reaction Systems, Hopfield Networks, Boltzmann Machines, Neural Networks, Circuits, Graphical Models, Boolean Algebra, String Rewriting Systems, Semigroups, Quantum Waves, Diophantine Equations, Tag Systems, The Actor Model, Term rewriting, etc.
 ** Models of computation
 - Lambda Calculus is at the heart of the most highly regarded programming languages: Haskell, ML and Lisp.
 ** Lambda Calculus
